@@ -23,42 +23,45 @@ const {
 const TelegramBot = require("node-telegram-bot-api");
 const bot = new TelegramBot(token, { polling: true });
 
-// Caption formatter
-const videoCaption = (url) => {
-  return `The video was downloaded via @topinstasaverbot\n\n[Link](${url}) | [Bot](https://t.me/topinstasaverbot) | [News](https://t.me/TopInstaSaverNews)`;
-};
+// Language config
+const { getTranslations, formatStatsMessage } = require("./config/languages");
 
-// Inline keyboard for video
-const videoKeyboard = (url) => ({
-  inline_keyboard: [[{ text: "Video link", url }]],
-});
+// Get user language helper
+const getUserLang = async (chatId) => {
+  try {
+    const user = await User.findOne({ chatId });
+    return user?.lang || "en";
+  } catch {
+    return "en";
+  }
+};
 
 // Start command handler
 bot.onText(/\/start/, async ({ chat, from }) => {
   const chatId = chat.id;
+  const langCode = from.language_code || "en";
 
   // Create user
   const user = await User.findOne({ chatId });
   if (!user) {
     await User.create({
       chatId,
+      lang: langCode,
       username: from.username,
       lastName: from.last_name,
-      lang: from.language_code,
       firstName: from.first_name,
     });
 
     await updateGlobalStats({ users: 1 });
   }
 
+  // Get translations
+  const t = getTranslations(langCode);
+
   // Greeting message
-  bot.sendMessage(
-    chatId,
-    "Welcome to *Insta Saver Bot!*\n\nSend an Instagram *video* or *reel* link to *download* the video. ⚡️",
-    {
-      parse_mode: "Markdown",
-    }
-  );
+  bot.sendMessage(chatId, t.welcome, {
+    parse_mode: "Markdown",
+  });
 });
 
 // Stats command handler - View global statistics
@@ -67,19 +70,14 @@ bot.onText(/\/stats/, async ({ chat }) => {
 
   try {
     const stats = await getGlobalStats();
-    const message =
-      `📊 *Bot Statistics*\n\n` +
-      `👥 Total Users: ${stats.users}\n` +
-      `📹 Total Videos: ${stats.total}\n` +
-      `✅ Success: ${stats.success}\n` +
-      `❌ Failed: ${stats.failed}\n` +
-      `📈 Success Rate: ${
-        stats.total > 0 ? ((stats.success / stats.total) * 100).toFixed(1) : 0
-      }%`;
+    const langCode = await getUserLang(chatId);
+    const message = formatStatsMessage(stats, langCode, true);
 
     bot.sendMessage(chatId, message, { parse_mode: "Markdown" });
   } catch {
-    bot.sendMessage(chatId, "Failed to get statistics.");
+    const langCode = await getUserLang(chatId);
+    const t = getTranslations(langCode);
+    bot.sendMessage(chatId, t.statsFailed);
   }
 });
 
@@ -89,18 +87,14 @@ bot.onText(/\/mystats/, async ({ chat }) => {
 
   try {
     const stats = await getUserStats(chatId);
-    const message =
-      `📊 *Your Statistics*\n\n` +
-      `📹 Total Videos: ${stats.total}\n` +
-      `✅ Success: ${stats.success}\n` +
-      `❌ Failed: ${stats.failed}\n` +
-      `📈 Success Rate: ${
-        stats.total > 0 ? ((stats.success / stats.total) * 100).toFixed(1) : 0
-      }%`;
+    const langCode = await getUserLang(chatId);
+    const message = formatStatsMessage(stats, langCode, false);
 
     bot.sendMessage(chatId, message, { parse_mode: "Markdown" });
   } catch {
-    bot.sendMessage(chatId, "Failed to get your statistics.");
+    const langCode = await getUserLang(chatId);
+    const t = getTranslations(langCode);
+    bot.sendMessage(chatId, t.statsFailed);
   }
 });
 
@@ -111,26 +105,38 @@ bot.on("text", async ({ text, chat, message_id: msgId }) => {
   // Validate Instagram URL
   if (!isValidInstagramUrl(text)) return;
 
+  // Get user language
+  const langCode = await getUserLang(chatId);
+  const t = getTranslations(langCode);
+
   // Format instagram video url
   const videoUrl = formatInstagramUrl(text);
   if (!videoUrl) {
-    return bot.sendMessage(chatId, "Invalid link entered");
+    return bot.sendMessage(chatId, t.invalidLink);
   }
 
   try {
     // Send video
     await bot.sendVideo(chatId, videoUrl.custom, {
       parse_mode: "Markdown",
-      caption: videoCaption(videoUrl.original),
-      reply_markup: videoKeyboard(videoUrl.original),
+      caption: t.videoCaption(videoUrl.original),
+      reply_markup: {
+        inline_keyboard: [
+          [{ text: t.videoLinkButton, url: videoUrl.original }],
+        ],
+      },
     });
 
     // Video successfully downloaded, update stats
     await trackVideoSuccess(chatId);
   } catch {
     // If video sending fails
-    bot.sendMessage(chatId, "Failed to download the video. 😞", {
-      reply_markup: videoKeyboard(videoUrl.original),
+    bot.sendMessage(chatId, t.downloadFailed, {
+      reply_markup: {
+        inline_keyboard: [
+          [{ text: t.videoLinkButton, url: videoUrl.original }],
+        ],
+      },
     });
 
     // Video failed to download, update stats
@@ -140,4 +146,3 @@ bot.on("text", async ({ text, chat, message_id: msgId }) => {
     bot.deleteMessage(chatId, msgId);
   }
 });
-
