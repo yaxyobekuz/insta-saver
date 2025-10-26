@@ -1,17 +1,40 @@
 {
-  "name": "topinstasaverbot",
+  "name": "insta-saver",
   "version": "1.0.0",
-  "description": "",
+  "description": "Instagram video and reel downloader Telegram bot with multi-language support and statistics tracking",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "telegram-bot",
+    "instagram",
+    "downloader",
+    "video-downloader",
+    "reels",
+    "mongodb",
+    "nodejs"
+  ],
+  "author": "YaxyobekUz",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YaxyobekUz/insta-saver.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YaxyobekUz/insta-saver/issues"
+  },
+  "homepage": "https://github.com/YaxyobekUz/insta-saver#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "dependencies": {
     "dotenv": "^16.4.5",
     "mongoose": "^8.19.2",
     "node-telegram-bot-api": "^0.66.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
   }
 }
