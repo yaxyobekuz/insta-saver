@@ -197,6 +197,42 @@ const languages = {
       `تم تنزيل الفيديو عبر @topinstasaverbot\n\n[الرابط](${url}) | [البوت](https://t.me/topinstasaverbot) | [الأخبار](https://t.me/TopInstaSaverNews)`,
     videoLinkButton: `رابط الفيديو`,
   },
+
+  // Portuguese (Portugal)
+  "pt-pt": {
+    welcome: `Bem-vindo ao *Insta Saver Bot!* 🎉\n\nEnvie uma ligação de *vídeo* ou *reel* do Instagram para *transferir* o vídeo. ⚡️`,
+    invalidLink: `Ligação inválida introduzida ❌`,
+    downloadFailed: `Falha ao transferir o vídeo 😞`,
+    statsTitle: `📊 *Estatísticas do Bot*`,
+    myStatsTitle: `📊 *As Suas Estatísticas*`,
+    totalUsers: `👥 Total de Utilizadores`,
+    totalVideos: `📹 Total de Vídeos`,
+    success: `✅ Sucesso`,
+    failed: `❌ Falhou`,
+    successRate: `📈 Taxa de Sucesso`,
+    statsFailed: `Falha ao obter estatísticas.`,
+    videoCaption: (url) =>
+      `O vídeo foi transferido via @topinstasaverbot\n\n[Ligação](${url}) | [Bot](https://t.me/topinstasaverbot) | [Notícias](https://t.me/TopInstaSaverNews)`,
+    videoLinkButton: `Ligação do vídeo`,
+  },
+
+  // Portuguese (Brazil)
+  "pt-br": {
+    welcome: `Bem-vindo ao *Insta Saver Bot!* 🎉\n\nEnvie um link de *vídeo* ou *reel* do Instagram para *baixar* o vídeo. ⚡️`,
+    invalidLink: `Link inválido inserido ❌`,
+    downloadFailed: `Falha ao baixar o vídeo 😞`,
+    statsTitle: `📊 *Estatísticas do Bot*`,
+    myStatsTitle: `📊 *Suas Estatísticas*`,
+    totalUsers: `👥 Total de Usuários`,
+    totalVideos: `📹 Total de Vídeos`,
+    success: `✅ Sucesso`,
+    failed: `❌ Falhou`,
+    successRate: `📈 Taxa de Sucesso`,
+    statsFailed: `Falha ao obter estatísticas.`,
+    videoCaption: (url) =>
+      `O vídeo foi baixado via @topinstasaverbot\n\n[Link](${url}) | [Bot](https://t.me/topinstasaverbot) | [Notícias](https://t.me/TopInstaSaverNews)`,
+    videoLinkButton: `Link do vídeo`,
+  },
 };
 
 /**
