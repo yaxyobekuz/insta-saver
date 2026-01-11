@@ -259,6 +259,426 @@ const languages = {
     },
     postUrlButton: `Link da publicação`,
   },
+
+  // Spanish
+  es: {
+    welcome: `¡Bienvenido a Insta Saver Bot! 🎉\n\nEnvía un enlace de *imagen* o *reel* o *historia* de Instagram y *descarga* la publicación gratis. ⚡️`,
+    invalidLink: `Enlace inválido ingresado ❌`,
+    downloadFailed: `Error al descargar el video 😞`,
+    statsTitle: `📊 *Estadísticas del Bot*`,
+    myStatsTitle: `📊 *Tus Estadísticas*`,
+    totalUsers: `👥 Total de Usuarios`,
+    totalVideos: `📹 Total de Videos`,
+    success: `✅ Exitoso`,
+    failed: `❌ Fallido`,
+    successRate: `📈 Tasa de Éxito`,
+    statsFailed: `Error al obtener estadísticas.`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nPublicación descargada vía @topinstasaverbot`;
+    },
+    postUrlButton: `Enlace de publicación`,
+  },
+
+  // French
+  fr: {
+    welcome: `Bienvenue sur Insta Saver Bot! 🎉\n\nEnvoyez un lien d'*image* ou de *reel* ou de *story* Instagram et *téléchargez* la publication gratuitement. ⚡️`,
+    invalidLink: `Lien invalide saisi ❌`,
+    downloadFailed: `Échec du téléchargement de la vidéo 😞`,
+    statsTitle: `📊 *Statistiques du Bot*`,
+    myStatsTitle: `📊 *Vos Statistiques*`,
+    totalUsers: `👥 Total des Utilisateurs`,
+    totalVideos: `📹 Total des Vidéos`,
+    success: `✅ Réussi`,
+    failed: `❌ Échoué`,
+    successRate: `📈 Taux de Réussite`,
+    statsFailed: `Échec de l'obtention des statistiques.`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nPublication téléchargée via @topinstasaverbot`;
+    },
+    postUrlButton: `Lien de publication`,
+  },
+
+  // German
+  de: {
+    welcome: `Willkommen bei Insta Saver Bot! 🎉\n\nSenden Sie einen Instagram *Bild*- oder *Reel*- oder *Story*-Link und *laden* Sie die Publikation kostenlos herunter. ⚡️`,
+    invalidLink: `Ungültiger Link eingegeben ❌`,
+    downloadFailed: `Video konnte nicht heruntergeladen werden 😞`,
+    statsTitle: `📊 *Bot-Statistiken*`,
+    myStatsTitle: `📊 *Ihre Statistiken*`,
+    totalUsers: `👥 Gesamte Benutzer`,
+    totalVideos: `📹 Gesamte Videos`,
+    success: `✅ Erfolgreich`,
+    failed: `❌ Fehlgeschlagen`,
+    successRate: `📈 Erfolgsquote`,
+    statsFailed: `Statistiken konnten nicht abgerufen werden.`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nBeitrag über @topinstasaverbot heruntergeladen`;
+    },
+    postUrlButton: `Beitragslink`,
+  },
+
+  // Italian
+  it: {
+    welcome: `Benvenuto su Insta Saver Bot! 🎉\n\nInvia un link di *immagine* o *reel* o *storia* di Instagram e *scarica* la pubblicazione gratuitamente. ⚡️`,
+    invalidLink: `Link non valido inserito ❌`,
+    downloadFailed: `Impossibile scaricare il video 😞`,
+    statsTitle: `📊 *Statistiche del Bot*`,
+    myStatsTitle: `📊 *Le Tue Statistiche*`,
+    totalUsers: `👥 Totale Utenti`,
+    totalVideos: `📹 Totale Video`,
+    success: `✅ Riuscito`,
+    failed: `❌ Fallito`,
+    successRate: `📈 Tasso di Successo`,
+    statsFailed: `Impossibile ottenere statistiche.`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nPubblicazione scaricata tramite @topinstasaverbot`;
+    },
+    postUrlButton: `Link pubblicazione`,
+  },
+
+  // Indonesian
+  id: {
+    welcome: `Selamat datang di Insta Saver Bot! 🎉\n\nKirim tautan *gambar* atau *reel* atau *story* Instagram dan *unduh* postingan secara gratis. ⚡️`,
+    invalidLink: `Tautan tidak valid dimasukkan ❌`,
+    downloadFailed: `Gagal mengunduh video 😞`,
+    statsTitle: `📊 *Statistik Bot*`,
+    myStatsTitle: `📊 *Statistik Anda*`,
+    totalUsers: `👥 Total Pengguna`,
+    totalVideos: `📹 Total Video`,
+    success: `✅ Berhasil`,
+    failed: `❌ Gagal`,
+    successRate: `📈 Tingkat Keberhasilan`,
+    statsFailed: `Gagal mendapatkan statistik.`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nPostingan diunduh via @topinstasaverbot`;
+    },
+    postUrlButton: `Tautan postingan`,
+  },
+
+  // Hindi
+  hi: {
+    welcome: `Insta Saver Bot में आपका स्वागत है! 🎉\n\nInstagram *छवि* या *रील* या *स्टोरी* लिंक भेजें और पोस्ट को मुफ्त में *डाउनलोड* करें। ⚡️`,
+    invalidLink: `अमान्य लिंक दर्ज किया गया ❌`,
+    downloadFailed: `वीडियो डाउनलोड करने में विफल 😞`,
+    statsTitle: `📊 *बॉट आँकड़े*`,
+    myStatsTitle: `📊 *आपके आँकड़े*`,
+    totalUsers: `👥 कुल उपयोगकर्ता`,
+    totalVideos: `📹 कुल वीडियो`,
+    success: `✅ सफल`,
+    failed: `❌ विफल`,
+    successRate: `📈 सफलता दर`,
+    statsFailed: `आँकड़े प्राप्त करने में विफल।`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nपोस्ट @topinstasaverbot के माध्यम से डाउनलोड की गई`;
+    },
+    postUrlButton: `पोस्ट लिंक`,
+  },
+
+  // Ukrainian
+  uk: {
+    welcome: `Ласкаво просимо до Insta Saver Bot! 🎉\n\nНадішліть посилання на Instagram *зображення* або *рілс* або *сторіс* і *завантажте* пост безкоштовно. ⚡️`,
+    invalidLink: `Введено недійсне посилання ❌`,
+    downloadFailed: `Не вдалося завантажити відео 😞`,
+    statsTitle: `📊 *Статистика бота*`,
+    myStatsTitle: `📊 *Ваша статистика*`,
+    totalUsers: `👥 Всього користувачів`,
+    totalVideos: `📹 Всього відео`,
+    success: `✅ Успішно`,
+    failed: `❌ Невдало`,
+    successRate: `📈 Рівень успіху`,
+    statsFailed: `Не вдалося отримати статистику.`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nПост завантажено через @topinstasaverbot`;
+    },
+    postUrlButton: `Посилання на пост`,
+  },
+
+  // Polish
+  pl: {
+    welcome: `Witamy w Insta Saver Bot! 🎉\n\nWyślij link do *obrazu* lub *reel* lub *story* z Instagrama i *pobierz* post za darmo. ⚡️`,
+    invalidLink: `Wprowadzono nieprawidłowy link ❌`,
+    downloadFailed: `Nie udało się pobrać wideo 😞`,
+    statsTitle: `📊 *Statystyki Bota*`,
+    myStatsTitle: `📊 *Twoje Statystyki*`,
+    totalUsers: `👥 Łączna liczba użytkowników`,
+    totalVideos: `📹 Łączna liczba filmów`,
+    success: `✅ Sukces`,
+    failed: `❌ Niepowodzenie`,
+    successRate: `📈 Wskaźnik sukcesu`,
+    statsFailed: `Nie udało się pobrać statystyk.`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nPost pobrany przez @topinstasaverbot`;
+    },
+    postUrlButton: `Link do postu`,
+  },
+
+  // Vietnamese
+  vi: {
+    welcome: `Chào mừng đến với Insta Saver Bot! 🎉\n\nGửi liên kết *hình ảnh* hoặc *reel* hoặc *story* Instagram và *tải xuống* bài đăng miễn phí. ⚡️`,
+    invalidLink: `Liên kết không hợp lệ được nhập ❌`,
+    downloadFailed: `Tải video thất bại 😞`,
+    statsTitle: `📊 *Thống Kê Bot*`,
+    myStatsTitle: `📊 *Thống Kê Của Bạn*`,
+    totalUsers: `👥 Tổng Người Dùng`,
+    totalVideos: `📹 Tổng Video`,
+    success: `✅ Thành Công`,
+    failed: `❌ Thất Bại`,
+    successRate: `📈 Tỷ Lệ Thành Công`,
+    statsFailed: `Không thể lấy thống kê.`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nBài đăng được tải xuống qua @topinstasaverbot`;
+    },
+    postUrlButton: `Liên kết bài đăng`,
+  },
+
+  // Thai
+  th: {
+    welcome: `ยินดีต้อนรับสู่ Insta Saver Bot! 🎉\n\nส่งลิงก์ *รูปภาพ* หรือ *รีล* หรือ *สตอรี่* Instagram และ *ดาวน์โหลด* โพสต์ฟรี ⚡️`,
+    invalidLink: `ป้อนลิงก์ไม่ถูกต้อง ❌`,
+    downloadFailed: `ดาวน์โหลดวิดีโอไม่สำเร็จ 😞`,
+    statsTitle: `📊 *สถิติบอท*`,
+    myStatsTitle: `📊 *สถิติของคุณ*`,
+    totalUsers: `👥 ผู้ใช้ทั้งหมด`,
+    totalVideos: `📹 วิดีโอทั้งหมด`,
+    success: `✅ สำเร็จ`,
+    failed: `❌ ล้มเหลว`,
+    successRate: `📈 อัตราความสำเร็จ`,
+    statsFailed: `ไม่สามารถรับสถิติได้`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nโพสต์ดาวน์โหลดผ่าน @topinstasaverbot`;
+    },
+    postUrlButton: `ลิงก์โพสต์`,
+  },
+
+  // Korean
+  ko: {
+    welcome: `Insta Saver Bot에 오신 것을 환영합니다! 🎉\n\nInstagram *이미지* 또는 *릴* 또는 *스토리* 링크를 보내고 게시물을 무료로 *다운로드*하세요. ⚡️`,
+    invalidLink: `잘못된 링크가 입력되었습니다 ❌`,
+    downloadFailed: `비디오 다운로드 실패 😞`,
+    statsTitle: `📊 *봇 통계*`,
+    myStatsTitle: `📊 *귀하의 통계*`,
+    totalUsers: `👥 전체 사용자`,
+    totalVideos: `📹 전체 비디오`,
+    success: `✅ 성공`,
+    failed: `❌ 실패`,
+    successRate: `📈 성공률`,
+    statsFailed: `통계를 가져오지 못했습니다.`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\n게시물이 @topinstasaverbot을 통해 다운로드되었습니다`;
+    },
+    postUrlButton: `게시물 링크`,
+  },
+
+  // Japanese
+  ja: {
+    welcome: `Insta Saver Botへようこそ！🎉\n\nInstagramの*画像*または*リール*または*ストーリー*のリンクを送信して、投稿を無料で*ダウンロード*してください。⚡️`,
+    invalidLink: `無効なリンクが入力されました ❌`,
+    downloadFailed: `動画のダウンロードに失敗しました 😞`,
+    statsTitle: `📊 *ボット統計*`,
+    myStatsTitle: `📊 *あなたの統計*`,
+    totalUsers: `👥 総ユーザー数`,
+    totalVideos: `📹 総動画数`,
+    success: `✅ 成功`,
+    failed: `❌ 失敗`,
+    successRate: `📈 成功率`,
+    statsFailed: `統計の取得に失敗しました。`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\n投稿は@topinstasaverbotを介してダウンロードされました`;
+    },
+    postUrlButton: `投稿リンク`,
+  },
+
+  // Dutch
+  nl: {
+    welcome: `Welkom bij Insta Saver Bot! 🎉\n\nStuur een Instagram *afbeelding* of *reel* of *verhaal* link en *download* de publicatie gratis. ⚡️`,
+    invalidLink: `Ongeldige link ingevoerd ❌`,
+    downloadFailed: `Video downloaden mislukt 😞`,
+    statsTitle: `📊 *Bot Statistieken*`,
+    myStatsTitle: `📊 *Uw Statistieken*`,
+    totalUsers: `👥 Totaal Gebruikers`,
+    totalVideos: `📹 Totaal Video's`,
+    success: `✅ Geslaagd`,
+    failed: `❌ Mislukt`,
+    successRate: `📈 Succespercentage`,
+    statsFailed: `Statistieken ophalen mislukt.`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nPublicatie gedownload via @topinstasaverbot`;
+    },
+    postUrlButton: `Publicatielink`,
+  },
+
+  // Romanian
+  ro: {
+    welcome: `Bun venit la Insta Saver Bot! 🎉\n\nTrimite un link de *imagine* sau *reel* sau *story* Instagram și *descarcă* postarea gratuit. ⚡️`,
+    invalidLink: `Link invalid introdus ❌`,
+    downloadFailed: `Descărcarea videoclipului a eșuat 😞`,
+    statsTitle: `📊 *Statistici Bot*`,
+    myStatsTitle: `📊 *Statisticile Tale*`,
+    totalUsers: `👥 Total Utilizatori`,
+    totalVideos: `📹 Total Videoclipuri`,
+    success: `✅ Succes`,
+    failed: `❌ Eșuat`,
+    successRate: `📈 Rata de Succes`,
+    statsFailed: `Obținerea statisticilor a eșuat.`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nPostare descărcată prin @topinstasaverbot`;
+    },
+    postUrlButton: `Link postare`,
+  },
+
+  // Czech
+  cs: {
+    welcome: `Vítejte v Insta Saver Bot! 🎉\n\nPošlete odkaz na Instagram *obrázek* nebo *reel* nebo *příběh* a *stáhněte* příspěvek zdarma. ⚡️`,
+    invalidLink: `Zadán neplatný odkaz ❌`,
+    downloadFailed: `Stažení videa se nezdařilo 😞`,
+    statsTitle: `📊 *Statistiky Bota*`,
+    myStatsTitle: `📊 *Vaše Statistiky*`,
+    totalUsers: `👥 Celkem Uživatelů`,
+    totalVideos: `📹 Celkem Videí`,
+    success: `✅ Úspěch`,
+    failed: `❌ Selhání`,
+    successRate: `📈 Míra Úspěšnosti`,
+    statsFailed: `Získání statistik se nezdařilo.`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nPříspěvek stažen přes @topinstasaverbot`;
+    },
+    postUrlButton: `Odkaz příspěvku`,
+  },
+
+  // Hungarian
+  hu: {
+    welcome: `Üdvözöljük az Insta Saver Bot-ban! 🎉\n\nKüldj egy Instagram *kép* vagy *reel* vagy *story* linket és *töltsd le* a bejegyzést ingyen. ⚡️`,
+    invalidLink: `Érvénytelen hivatkozás megadva ❌`,
+    downloadFailed: `A videó letöltése sikertelen 😞`,
+    statsTitle: `📊 *Bot Statisztikák*`,
+    myStatsTitle: `📊 *Statisztikáid*`,
+    totalUsers: `👥 Összes Felhasználó`,
+    totalVideos: `📹 Összes Videó`,
+    success: `✅ Sikeres`,
+    failed: `❌ Sikertelen`,
+    successRate: `📈 Sikerességi Arány`,
+    statsFailed: `A statisztikák lekérése sikertelen.`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nBejegyzés letöltve @topinstasaverbot-on keresztül`;
+    },
+    postUrlButton: `Bejegyzés link`,
+  },
+
+  // Greek
+  el: {
+    welcome: `Καλώς ήρθατε στο Insta Saver Bot! 🎉\n\nΣτείλτε έναν σύνδεσμο *εικόνας* ή *reel* ή *ιστορίας* Instagram και *κατεβάστε* τη δημοσίευση δωρεάν. ⚡️`,
+    invalidLink: `Εισήχθη μη έγκυρος σύνδεσμος ❌`,
+    downloadFailed: `Αποτυχία λήψης βίντεο 😞`,
+    statsTitle: `📊 *Στατιστικά Bot*`,
+    myStatsTitle: `📊 *Τα Στατιστικά Σας*`,
+    totalUsers: `👥 Σύνολο Χρηστών`,
+    totalVideos: `📹 Σύνολο Βίντεο`,
+    success: `✅ Επιτυχία`,
+    failed: `❌ Αποτυχία`,
+    successRate: `📈 Ποσοστό Επιτυχίας`,
+    statsFailed: `Αποτυχία λήψης στατιστικών.`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nΗ δημοσίευση κατέβηκε μέσω @topinstasaverbot`;
+    },
+    postUrlButton: `Σύνδεσμος δημοσίευσης`,
+  },
+
+  // Swedish
+  sv: {
+    welcome: `Välkommen till Insta Saver Bot! 🎉\n\nSkicka en Instagram *bild* eller *reel* eller *story* länk och *ladda ner* inlägget gratis. ⚡️`,
+    invalidLink: `Ogiltig länk angiven ❌`,
+    downloadFailed: `Misslyckades med att ladda ner video 😞`,
+    statsTitle: `📊 *Bot-statistik*`,
+    myStatsTitle: `📊 *Din Statistik*`,
+    totalUsers: `👥 Totalt Användare`,
+    totalVideos: `📹 Totalt Videor`,
+    success: `✅ Framgång`,
+    failed: `❌ Misslyckades`,
+    successRate: `📈 Framgångsfrekvens`,
+    statsFailed: `Misslyckades med att hämta statistik.`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nInlägg nedladdat via @topinstasaverbot`;
+    },
+    postUrlButton: `Inläggslänk`,
+  },
+
+  // Danish
+  da: {
+    welcome: `Velkommen til Insta Saver Bot! 🎉\n\nSend et Instagram *billede* eller *reel* eller *historie* link og *download* indlægget gratis. ⚡️`,
+    invalidLink: `Ugyldigt link indtastet ❌`,
+    downloadFailed: `Download af video mislykkedes 😞`,
+    statsTitle: `📊 *Bot Statistik*`,
+    myStatsTitle: `📊 *Din Statistik*`,
+    totalUsers: `👥 Totalt Brugere`,
+    totalVideos: `📹 Totalt Videoer`,
+    success: `✅ Succes`,
+    failed: `❌ Mislykket`,
+    successRate: `📈 Succesrate`,
+    statsFailed: `Kunne ikke hente statistik.`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nIndlæg downloadet via @topinstasaverbot`;
+    },
+    postUrlButton: `Indlægslink`,
+  },
+
+  // Finnish
+  fi: {
+    welcome: `Tervetuloa Insta Saver Botiin! 🎉\n\nLähetä Instagram *kuva* tai *reel* tai *tarina* linkki ja *lataa* julkaisu ilmaiseksi. ⚡️`,
+    invalidLink: `Virheellinen linkki syötetty ❌`,
+    downloadFailed: `Videon lataus epäonnistui 😞`,
+    statsTitle: `📊 *Botin Tilastot*`,
+    myStatsTitle: `📊 *Sinun Tilastosi*`,
+    totalUsers: `👥 Käyttäjiä Yhteensä`,
+    totalVideos: `📹 Videoita Yhteensä`,
+    success: `✅ Onnistui`,
+    failed: `❌ Epäonnistui`,
+    successRate: `📈 Onnistumisprosentti`,
+    statsFailed: `Tilastojen hakeminen epäonnistui.`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nJulkaisu ladattu @topinstasaverbot kautta`;
+    },
+    postUrlButton: `Julkaisulinkki`,
+  },
+
+  // Chinese
+  zh: {
+    welcome: `欢迎使用Insta Saver Bot！🎉\n\n发送Instagram *图片*或*短视频*或*故事*链接，免费*下载*帖子。⚡️`,
+    invalidLink: `输入的链接无效 ❌`,
+    downloadFailed: `下载视频失败 😞`,
+    statsTitle: `📊 *机器人统计*`,
+    myStatsTitle: `📊 *您的统计*`,
+    totalUsers: `👥 总用户数`,
+    totalVideos: `📹 总视频数`,
+    success: `✅ 成功`,
+    failed: `❌ 失败`,
+    successRate: `📈 成功率`,
+    statsFailed: `获取统计信息失败。`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\n帖子通过@topinstasaverbot下载`;
+    },
+    postUrlButton: `帖子链接`,
+  },
 };
 
 /**
