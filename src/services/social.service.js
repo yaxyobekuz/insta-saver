@@ -27,6 +27,7 @@ const SDApiUrl = process.env.SOCIAL_DOWN_API_URL;
 const sendPost = async (chatId, url, t, msgId) => {
   // Delete the user's link message
   bot.deleteMessage(chatId, msgId);
+  let loadingMsgId = null;
 
   try {
     // Check if post already exists in the database
@@ -40,6 +41,9 @@ const sendPost = async (chatId, url, t, msgId) => {
       // Video successfully downloaded, update stats
       return await trackVideoSuccess(chatId);
     }
+
+    // Send loading message
+    loadingMsgId = (await bot.sendMessage(chatId, t.loading)).message_id;
 
     // Fetch post data from Social Downloader API
     const response = await axios.post(
@@ -75,6 +79,9 @@ const sendPost = async (chatId, url, t, msgId) => {
 
     // Video failed to download, update stats
     await trackVideoFailure(chatId);
+  } finally {
+    // Delete loading message
+    if (loadingMsgId) bot.deleteMessage(chatId, loadingMsgId);
   }
 };
 

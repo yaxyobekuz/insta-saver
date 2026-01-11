@@ -11,6 +11,7 @@ const languages = {
     totalVideos: `📹 Jami videolar`,
     success: `✅ Muvaffaqiyatli`,
     failed: `❌ Muvaffaqiyatsiz`,
+    loading: `⏳ Yuklanmoqda...`,
     successRate: `📈 Muvaffaqiyat darajasi`,
     statsFailed: `Statistikani olishda xatolik yuz berdi.`,
     postCaption: (title) => {
@@ -31,6 +32,7 @@ const languages = {
     totalVideos: `📹 Total Videos`,
     success: `✅ Success`,
     failed: `❌ Failed`,
+    loading: `⏳ Loading...`,
     successRate: `📈 Success Rate`,
     statsFailed: `Failed to get statistics.`,
     postCaption: (title) => {
@@ -51,6 +53,7 @@ const languages = {
     totalVideos: `📹 Всего видео`,
     success: `✅ Успешно`,
     failed: `❌ Неудачно`,
+    loading: `⏳ Загрузка...`,
     successRate: `📈 Процент успеха`,
     statsFailed: `Не удалось получить статистику.`,
     postCaption: (title) => {
@@ -71,6 +74,7 @@ const languages = {
     totalVideos: `📹 Барлық видеолар`,
     success: `✅ Сәтті`,
     failed: `❌ Сәтсіз`,
+    loading: `⏳ Жүктелуде...`,
     successRate: `📈 Сәттілік деңгейі`,
     statsFailed: `Статистиканы алу мүмкін болмады.`,
     postCaption: (title) => {
@@ -91,6 +95,7 @@ const languages = {
     totalVideos: `📹 Бардык видеолор`,
     success: `✅ Ийгиликтүү`,
     failed: `❌ Ийгиликсиз`,
+    loading: `⏳ Жүктөлүүдө...`,
     successRate: `📈 Ийгилик деңгээли`,
     statsFailed: `Статистиканы алуу мүмкүн эмес.`,
     postCaption: (title) => {
@@ -111,6 +116,7 @@ const languages = {
     totalVideos: `📹 Toplam Videolar`,
     success: `✅ Başarılı`,
     failed: `❌ Başarısız`,
+    loading: `⏳ Yükleniyor...`,
     successRate: `📈 Başarı Oranı`,
     statsFailed: `İstatistikler alınamadı.`,
     postCaption: (title) => {
@@ -131,6 +137,7 @@ const languages = {
     totalVideos: `📹 Ҳамаи видеоҳо`,
     success: `✅ Муваффақ`,
     failed: `❌ Номуваффақ`,
+    loading: `⏳ Боргирӣ шуда истодааст...`,
     successRate: `📈 Дараҷаи муваффақият`,
     statsFailed: `Омор гирифта нашуд.`,
     postCaption: (title) => {
@@ -151,6 +158,7 @@ const languages = {
     totalVideos: `📹 Ähli wideolar`,
     success: `✅ Üstünlikli`,
     failed: `❌ Şowsuz`,
+    loading: `⏳ Ýüklenýär...`,
     successRate: `📈 Üstünlik derejesi`,
     statsFailed: `Statistikany almak başartmady.`,
     postCaption: (title) => {
@@ -171,6 +179,7 @@ const languages = {
     totalVideos: `📹 Ümumi videolar`,
     success: `✅ Uğurlu`,
     failed: `❌ Uğursuz`,
+    loading: `⏳ Yüklənir...`,
     successRate: `📈 Uğur dərəcəsi`,
     statsFailed: `Statistika əldə edilmədi.`,
     postCaption: (title) => {
@@ -191,6 +200,7 @@ const languages = {
     totalVideos: `📹 کل ویدیوها`,
     success: `✅ موفق`,
     failed: `❌ ناموفق`,
+    loading: `⏳ در حال بارگذاری...`,
     successRate: `📈 نرخ موفقیت`,
     statsFailed: `دریافت آمار ناموفق بود.`,
     postCaption: (title) => {
@@ -211,6 +221,7 @@ const languages = {
     totalVideos: `📹 إجمالي الفيديوهات`,
     success: `✅ نجح`,
     failed: `❌ فشل`,
+    loading: `⏳ جاري التحميل...`,
     successRate: `📈 معدل النجاح`,
     statsFailed: `فشل في الحصول على الإحصائيات.`,
     postCaption: (title) => {
@@ -230,6 +241,7 @@ const languages = {
     totalUsers: `👥 Total de Utilizadores`,
     totalVideos: `📹 Total de Vídeos`,
     success: `✅ Sucesso`,
+    loading: `⏳ A carregar...`,
     failed: `❌ Falhou`,
     successRate: `📈 Taxa de Sucesso`,
     statsFailed: `Falha ao obter estatísticas.`,
@@ -251,6 +263,7 @@ const languages = {
     totalVideos: `📹 Total de Vídeos`,
     success: `✅ Sucesso`,
     failed: `❌ Falhou`,
+    loading: `⏳ Carregando...`,
     successRate: `📈 Taxa de Sucesso`,
     statsFailed: `Falha ao obter estatísticas.`,
     postCaption: (title) => {
@@ -271,6 +284,7 @@ const languages = {
     totalVideos: `📹 Total de Videos`,
     success: `✅ Exitoso`,
     failed: `❌ Fallido`,
+    loading: `⏳ Cargando...`,
     successRate: `📈 Tasa de Éxito`,
     statsFailed: `Error al obtener estadísticas.`,
     postCaption: (title) => {
@@ -291,6 +305,7 @@ const languages = {
     totalVideos: `📹 Total des Vidéos`,
     success: `✅ Réussi`,
     failed: `❌ Échoué`,
+    loading: `⏳ Chargement...`,
     successRate: `📈 Taux de Réussite`,
     statsFailed: `Échec de l'obtention des statistiques.`,
     postCaption: (title) => {
@@ -311,6 +326,7 @@ const languages = {
     totalVideos: `📹 Gesamte Videos`,
     success: `✅ Erfolgreich`,
     failed: `❌ Fehlgeschlagen`,
+    loading: `⏳ Laden...`,
     successRate: `📈 Erfolgsquote`,
     statsFailed: `Statistiken konnten nicht abgerufen werden.`,
     postCaption: (title) => {
@@ -331,6 +347,7 @@ const languages = {
     totalVideos: `📹 Totale Video`,
     success: `✅ Riuscito`,
     failed: `❌ Fallito`,
+    loading: `⏳ Caricamento...`,
     successRate: `📈 Tasso di Successo`,
     statsFailed: `Impossibile ottenere statistiche.`,
     postCaption: (title) => {
@@ -351,6 +368,7 @@ const languages = {
     totalVideos: `📹 Total Video`,
     success: `✅ Berhasil`,
     failed: `❌ Gagal`,
+    loading: `⏳ Memuat...`,
     successRate: `📈 Tingkat Keberhasilan`,
     statsFailed: `Gagal mendapatkan statistik.`,
     postCaption: (title) => {
@@ -371,6 +389,7 @@ const languages = {
     totalVideos: `📹 कुल वीडियो`,
     success: `✅ सफल`,
     failed: `❌ विफल`,
+    loading: `⏳ लोड हो रहा है...`,
     successRate: `📈 सफलता दर`,
     statsFailed: `आँकड़े प्राप्त करने में विफल।`,
     postCaption: (title) => {
@@ -391,6 +410,7 @@ const languages = {
     totalVideos: `📹 Всього відео`,
     success: `✅ Успішно`,
     failed: `❌ Невдало`,
+    loading: `⏳ Завантаження...`,
     successRate: `📈 Рівень успіху`,
     statsFailed: `Не вдалося отримати статистику.`,
     postCaption: (title) => {
@@ -411,6 +431,7 @@ const languages = {
     totalVideos: `📹 Łączna liczba filmów`,
     success: `✅ Sukces`,
     failed: `❌ Niepowodzenie`,
+    loading: `⏳ Ładowanie...`,
     successRate: `📈 Wskaźnik sukcesu`,
     statsFailed: `Nie udało się pobrać statystyk.`,
     postCaption: (title) => {
@@ -431,6 +452,7 @@ const languages = {
     totalVideos: `📹 Tổng Video`,
     success: `✅ Thành Công`,
     failed: `❌ Thất Bại`,
+    loading: `⏳ Đang tải...`,
     successRate: `📈 Tỷ Lệ Thành Công`,
     statsFailed: `Không thể lấy thống kê.`,
     postCaption: (title) => {
@@ -451,6 +473,7 @@ const languages = {
     totalVideos: `📹 วิดีโอทั้งหมด`,
     success: `✅ สำเร็จ`,
     failed: `❌ ล้มเหลว`,
+    loading: `⏳ กำลังโหลด...`,
     successRate: `📈 อัตราความสำเร็จ`,
     statsFailed: `ไม่สามารถรับสถิติได้`,
     postCaption: (title) => {
@@ -471,6 +494,7 @@ const languages = {
     totalVideos: `📹 전체 비디오`,
     success: `✅ 성공`,
     failed: `❌ 실패`,
+    loading: `⏳ 로딩 중...`,
     successRate: `📈 성공률`,
     statsFailed: `통계를 가져오지 못했습니다.`,
     postCaption: (title) => {
@@ -491,6 +515,7 @@ const languages = {
     totalVideos: `📹 総動画数`,
     success: `✅ 成功`,
     failed: `❌ 失敗`,
+    loading: `⏳ 読み込み中...`,
     successRate: `📈 成功率`,
     statsFailed: `統計の取得に失敗しました。`,
     postCaption: (title) => {
@@ -511,6 +536,7 @@ const languages = {
     totalVideos: `📹 Totaal Video's`,
     success: `✅ Geslaagd`,
     failed: `❌ Mislukt`,
+    loading: `⏳ Laden...`,
     successRate: `📈 Succespercentage`,
     statsFailed: `Statistieken ophalen mislukt.`,
     postCaption: (title) => {
@@ -531,6 +557,7 @@ const languages = {
     totalVideos: `📹 Total Videoclipuri`,
     success: `✅ Succes`,
     failed: `❌ Eșuat`,
+    loading: `⏳ Se încarcă...`,
     successRate: `📈 Rata de Succes`,
     statsFailed: `Obținerea statisticilor a eșuat.`,
     postCaption: (title) => {
@@ -551,6 +578,7 @@ const languages = {
     totalVideos: `📹 Celkem Videí`,
     success: `✅ Úspěch`,
     failed: `❌ Selhání`,
+    loading: `⏳ Načítání...`,
     successRate: `📈 Míra Úspěšnosti`,
     statsFailed: `Získání statistik se nezdařilo.`,
     postCaption: (title) => {
@@ -571,6 +599,7 @@ const languages = {
     totalVideos: `📹 Összes Videó`,
     success: `✅ Sikeres`,
     failed: `❌ Sikertelen`,
+    loading: `⏳ Betöltés...`,
     successRate: `📈 Sikerességi Arány`,
     statsFailed: `A statisztikák lekérése sikertelen.`,
     postCaption: (title) => {
@@ -591,6 +620,7 @@ const languages = {
     totalVideos: `📹 Σύνολο Βίντεο`,
     success: `✅ Επιτυχία`,
     failed: `❌ Αποτυχία`,
+    loading: `⏳ Φόρτωση...`,
     successRate: `📈 Ποσοστό Επιτυχίας`,
     statsFailed: `Αποτυχία λήψης στατιστικών.`,
     postCaption: (title) => {
@@ -611,6 +641,7 @@ const languages = {
     totalVideos: `📹 Totalt Videor`,
     success: `✅ Framgång`,
     failed: `❌ Misslyckades`,
+    loading: `⏳ Laddar...`,
     successRate: `📈 Framgångsfrekvens`,
     statsFailed: `Misslyckades med att hämta statistik.`,
     postCaption: (title) => {
@@ -631,6 +662,7 @@ const languages = {
     totalVideos: `📹 Totalt Videoer`,
     success: `✅ Succes`,
     failed: `❌ Mislykket`,
+    loading: `⏳ Indlæser...`,
     successRate: `📈 Succesrate`,
     statsFailed: `Kunne ikke hente statistik.`,
     postCaption: (title) => {
@@ -651,6 +683,7 @@ const languages = {
     totalVideos: `📹 Videoita Yhteensä`,
     success: `✅ Onnistui`,
     failed: `❌ Epäonnistui`,
+    loading: `⏳ Ladataan...`,
     successRate: `📈 Onnistumisprosentti`,
     statsFailed: `Tilastojen hakeminen epäonnistui.`,
     postCaption: (title) => {
@@ -671,6 +704,7 @@ const languages = {
     totalVideos: `📹 总视频数`,
     success: `✅ 成功`,
     failed: `❌ 失败`,
+    loading: `⏳ 加载中...`,
     successRate: `📈 成功率`,
     statsFailed: `获取统计信息失败。`,
     postCaption: (title) => {
