@@ -1,0 +1,148 @@
+// Axios
+const axios = require("axios");
+
+// Models
+const Post = require("../models/Post");
+
+// Helpers
+const {
+  trackVideoFailure,
+  trackVideoSuccess,
+} = require("../helpers/stats.helpers");
+
+// Bot config
+const bot = require("../config/bot.config");
+
+// Social Downloader API config
+const SDKey = process.env.SOCIAL_DOWN_KEY;
+const SDHost = process.env.SOCIAL_DOWN_HOST;
+const SDApiUrl = process.env.SOCIAL_DOWN_API_URL;
+
+/**
+  @param {number} chatId - The chat ID to send the video to
+  @param {object} url - The URL of the video to download
+  @param {object} t - Translations object
+  @param {number} msgId - The message ID to delete after processing
+*/
+const sendPost = async (chatId, url, t, msgId) => {
+  // Delete the user's link message
+  bot.deleteMessage(chatId, msgId);
+
+  try {
+    // Check if post already exists in the database
+    const post = await Post.findOne({ url });
+    if (post) {
+      await sendMedias(chatId, t, post);
+
+      // Increment download count
+      await Post.updateOne({ url }, { $inc: { downloadCount: 1 } });
+
+      // Video successfully downloaded, update stats
+      return await trackVideoSuccess(chatId);
+    }
+
+    // Fetch post data from Social Downloader API
+    const response = await axios.post(
+      SDApiUrl,
+      { url: url },
+      { headers: { "x-rapidapi-key": SDKey, "x-rapidapi-host": SDHost } }
+    );
+
+    // Send medias to user
+    const sendedMedias = await sendMedias(chatId, t, response.data);
+
+    // Save post to database
+    await Post.create({ ...response.data, medias: sendedMedias });
+
+    // Video successfully downloaded, update stats
+    await trackVideoSuccess(chatId);
+  } catch (err) {
+    // If video sending fails
+    bot.sendMessage(chatId, t.downloadFailed, {
+      reply_markup: {
+        inline_keyboard: [[{ text: t.videoLinkButton, url }]],
+      },
+    });
+
+    console.error("=".repeat(40));
+    if (err.response?.body) {
+      console.error("Send post error: ", err.response?.body?.description);
+    } else {
+      console.error("Send post error: ", err.message);
+    }
+    console.error("Post URL: ", url);
+    console.error("=".repeat(40));
+
+    // Video failed to download, update stats
+    await trackVideoFailure(chatId);
+  }
+};
+
+/**
+  @param {number} chatId - The chat ID to send the medias to
+  @param {object} t - Translations object
+  @param {object} post - The post object containing medias
+*/
+const sendMedias = async (chatId, t, post) => {
+  const medias = post.medias;
+  if (!medias?.length) return;
+
+  // Youtube
+  if (post.source === "youtube") {
+    const video = selectYoutubeVideo(medias);
+    if (video) {
+      const sendedMedia = await sendMedia(chatId, t, video, post.url);
+      return [{ ...video, fileId: sendedMedia.file_id }];
+    }
+  }
+
+  // Other platforms
+  let sendedMedias = [];
+  for (let index = 0; index < medias.length; index++) {
+    const media = medias[index];
+    if (!["video", "image"].includes(media.type)) continue;
+    const sendedMedia = await sendMedia(chatId, t, media, post.url);
+    sendedMedias.push({ ...media, fileId: sendedMedia.file_id });
+  }
+
+  return sendedMedias;
+};
+
+/**
+  @param {number} chatId The chat ID to send the video to
+  @param {object} t Translations object
+  @param {object} media The media object containing type and URL
+  @param {object} postUrl The URL of the post
+  @returns {object} The sent media object
+*/
+const sendMedia = async (chatId, t, media, postUrl) => {
+  const fileId = media.fileId ? media.fileId : media.url;
+
+  // Video
+  if (media.type === "video") {
+    const sendedMedia = await bot.sendVideo(chatId, fileId, {
+      parse_mode: "Markdown",
+      caption: t.videoCaption(postUrl),
+      reply_markup: {
+        inline_keyboard: [[{ text: t.videoLinkButton, url: postUrl }]],
+      },
+    });
+
+    return sendedMedia.video;
+  }
+
+  // Image
+  if (media.type === "image") {
+    const sendedMedia = await bot.sendPhoto(chatId, fileId, {
+      parse_mode: "Markdown",
+      caption: t.videoCaption(postUrl),
+      reply_markup: {
+        inline_keyboard: [[{ text: t.videoLinkButton, url: postUrl }]],
+      },
+    });
+
+    return sendedMedia.photo[sendedMedia.photo.length - 1];
+  }
+};
+
+module.exports = { sendPost };
