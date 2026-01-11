@@ -241,13 +241,13 @@ const languages = {
  * @returns {String} Normalized language code
  */
 const getUserLanguage = (langCode) => {
-  if (!langCode) return `en`;
+  if (!langCode) return "en";
 
   // Normalize language code (e.g., 'en-US' -> 'en')
-  const normalizedCode = langCode.toLowerCase().split(`-`)[0];
+  const normalizedCode = langCode.toLowerCase().split("-")[0];
 
   // Return language if supported, otherwise default to English
-  return languages[normalizedCode] ? normalizedCode : `en`;
+  return languages[normalizedCode] ? normalizedCode : "en";
 };
 
 /**

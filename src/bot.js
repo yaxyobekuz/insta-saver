@@ -1,30 +1,33 @@
 // Bot token
 const token = process.env.TOKEN;
 
-// Url helpers
+// Language config
 const {
-  formatInstagramUrl,
-  isValidInstagramUrl,
-} = require("./helpers/url.helpers");
+  getTranslations,
+  getUserLanguage,
+  formatStatsMessage,
+} = require("./config/languages");
 
 // Models
 const User = require("./models/User");
 
-// Stats helpers
+// Helpers
+const {
+  formatInstagramUrl,
+  isValidInstagramUrl,
+} = require("./helpers/url.helpers");
 const {
   getUserStats,
   getGlobalStats,
-  trackVideoSuccess,
-  trackVideoFailure,
   updateGlobalStats,
 } = require("./helpers/stats.helpers");
 
-// Bot config
+// Bot instance
 const TelegramBot = require("node-telegram-bot-api");
 const bot = new TelegramBot(token, { polling: true });
 
-// Language config
-const { getTranslations, formatStatsMessage } = require("./config/languages");
+// Services
+const { sendInstagramVideo } = require("./services/instagram.service");
 
 // Get user language helper
 const getUserLang = async (chatId) => {
@@ -39,7 +42,7 @@ const getUserLang = async (chatId) => {
 // Start command handler
 bot.onText(/\/start/, async ({ chat, from }) => {
   const chatId = chat.id;
-  const langCode = from.language_code || "en";
+  const langCode = getUserLanguage(from.language_code);
 
   // Create user
   const user = await User.findOne({ chatId });
@@ -115,34 +118,6 @@ bot.on("text", async ({ text, chat, message_id: msgId }) => {
     return bot.sendMessage(chatId, t.invalidLink);
   }
 
-  try {
-    // Send video
-    await bot.sendVideo(chatId, videoUrl.custom, {
-      parse_mode: "Markdown",
-      caption: t.videoCaption(videoUrl.original),
-      reply_markup: {
-        inline_keyboard: [
-          [{ text: t.videoLinkButton, url: videoUrl.original }],
-        ],
-      },
-    });
-
-    // Video successfully downloaded, update stats
-    await trackVideoSuccess(chatId);
-  } catch {
-    // If video sending fails
-    bot.sendMessage(chatId, t.downloadFailed, {
-      reply_markup: {
-        inline_keyboard: [
-          [{ text: t.videoLinkButton, url: videoUrl.original }],
-        ],
-      },
-    });
-
-    // Video failed to download, update stats
-    await trackVideoFailure(chatId);
-  } finally {
-    // Finally, delete the user's message
-    bot.deleteMessage(chatId, msgId);
-  }
+  // Process Instagram video sending
+  await sendInstagramVideo(bot, chatId, videoUrl, t, msgId);
 });
