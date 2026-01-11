@@ -60,7 +60,7 @@ const sendPost = async (chatId, url, t, msgId) => {
     // If video sending fails
     bot.sendMessage(chatId, t.downloadFailed, {
       reply_markup: {
-        inline_keyboard: [[{ text: t.videoLinkButton, url }]],
+        inline_keyboard: [[{ text: t.postUrlButton, url }]],
       },
     });
 
@@ -91,7 +91,7 @@ const sendMedias = async (chatId, t, post) => {
   if (post.source === "youtube") {
     const video = selectYoutubeVideo(medias);
     if (video) {
-      const sendedMedia = await sendMedia(chatId, t, video, post.url);
+      const sendedMedia = await sendMedia(chatId, t, video, post);
       return [{ ...video, fileId: sendedMedia.file_id }];
     }
   }
@@ -101,7 +101,7 @@ const sendMedias = async (chatId, t, post) => {
   for (let index = 0; index < medias.length; index++) {
     const media = medias[index];
     if (!["video", "image"].includes(media.type)) continue;
-    const sendedMedia = await sendMedia(chatId, t, media, post.url);
+    const sendedMedia = await sendMedia(chatId, t, media, post);
     sendedMedias.push({ ...media, fileId: sendedMedia.file_id });
   }
 
@@ -112,19 +112,19 @@ const sendMedias = async (chatId, t, post) => {
   @param {number} chatId The chat ID to send the video to
   @param {object} t Translations object
   @param {object} media The media object containing type and URL
-  @param {object} postUrl The URL of the post
+  @param {object} post The post object containing medias
   @returns {object} The sent media object
 */
-const sendMedia = async (chatId, t, media, postUrl) => {
+const sendMedia = async (chatId, t, media, post) => {
   const fileId = media.fileId ? media.fileId : media.url;
 
   // Video
   if (media.type === "video") {
     const sendedMedia = await bot.sendVideo(chatId, fileId, {
       parse_mode: "Markdown",
-      caption: t.videoCaption(postUrl),
+      caption: t.postCaption(post.title),
       reply_markup: {
-        inline_keyboard: [[{ text: t.videoLinkButton, url: postUrl }]],
+        inline_keyboard: [[{ text: t.postUrlButton, url: post.url }]],
       },
     });
 
@@ -135,9 +135,9 @@ const sendMedia = async (chatId, t, media, postUrl) => {
   if (media.type === "image") {
     const sendedMedia = await bot.sendPhoto(chatId, fileId, {
       parse_mode: "Markdown",
-      caption: t.videoCaption(postUrl),
+      caption: t.postCaption(post.title),
       reply_markup: {
-        inline_keyboard: [[{ text: t.videoLinkButton, url: postUrl }]],
+        inline_keyboard: [[{ text: t.postUrlButton, url: post.url }]],
       },
     });
 

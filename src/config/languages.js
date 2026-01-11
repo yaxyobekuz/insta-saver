@@ -2,7 +2,7 @@
 const languages = {
   // Uzbek
   uz: {
-    welcome: `Insta Saver Botga xush kelibsiz! 🎉\n\nInstagram *video* yoki *reel* havolasini yuboring va videoni *yuklab oling*. ⚡️`,
+    welcome: `Insta Saver Botga xush kelibsiz! 🎉\n\nInstagram *rasm* yoki *reel* yoki *story* havolasini yuboring va postni bepul *yuklab oling*. ⚡️`,
     invalidLink: `Noto'g'ri havola kiritildi ❌`,
     downloadFailed: `Video yuklanmadi 😞`,
     statsTitle: `📊 *Bot Statistikasi*`,
@@ -13,14 +13,16 @@ const languages = {
     failed: `❌ Muvaffaqiyatsiz`,
     successRate: `📈 Muvaffaqiyat darajasi`,
     statsFailed: `Statistikani olishda xatolik yuz berdi.`,
-    videoCaption: (url) =>
-      `Video @topinstasaverbot orqali yuklandi\n\n[Havola](${url}) | [Bot](https://t.me/topinstasaverbot) | [Yangiliklar](https://t.me/TopInstaSaverNews)`,
-    videoLinkButton: `Video havolasi`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nPost @topinstasaverbot orqali yuklandi`;
+    },
+    postUrlButton: `Post havolasi`,
   },
 
   // English
   en: {
-    welcome: `Welcome to *Insta Saver Bot!* 🎉\n\nSend an Instagram *video* or *reel* link to *download* the video. ⚡️`,
+    welcome: `Welcome to Insta Saver Bot! 🎉\n\nSend an Instagram *image* or *reel* or *story* link and *download* the post for free. ⚡️`,
     invalidLink: `Invalid link entered ❌`,
     downloadFailed: `Failed to download the video 😞`,
     statsTitle: `📊 *Bot Statistics*`,
@@ -31,14 +33,16 @@ const languages = {
     failed: `❌ Failed`,
     successRate: `📈 Success Rate`,
     statsFailed: `Failed to get statistics.`,
-    videoCaption: (url) =>
-      `The video was downloaded via @topinstasaverbot\n\n[Link](${url}) | [Bot](https://t.me/topinstasaverbot) | [News](https://t.me/TopInstaSaverNews)`,
-    videoLinkButton: `Video link`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nPost downloaded via @topinstasaverbot`;
+    },
+    postUrlButton: `Post link`,
   },
 
   // Russian
   ru: {
-    welcome: `Добро пожаловать в *Insta Saver Bot!* 🎉\n\nОтправьте ссылку на *видео* или *рилс* из Instagram, чтобы *скачать* видео. ⚡️`,
+    welcome: `Добро пожаловать в Insta Saver Bot! 🎉\n\nОтправьте ссылку на Instagram *изображение* или *рилс* или *сторис* и *скачайте* пост бесплатно. ⚡️`,
     invalidLink: `Введена неверная ссылка ❌`,
     downloadFailed: `Не удалось скачать видео 😞`,
     statsTitle: `📊 *Статистика бота*`,
@@ -49,14 +53,16 @@ const languages = {
     failed: `❌ Неудачно`,
     successRate: `📈 Процент успеха`,
     statsFailed: `Не удалось получить статистику.`,
-    videoCaption: (url) =>
-      `Видео загружено через @topinstasaverbot\n\n[Ссылка](${url}) | [Бот](https://t.me/topinstasaverbot) | [Новости](https://t.me/TopInstaSaverNews)`,
-    videoLinkButton: `Ссылка на видео`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nПост скачан через @topinstasaverbot`;
+    },
+    postUrlButton: `Ссылка на пост`,
   },
 
   // Kazakh
   kk: {
-    welcome: `*Insta Saver Bot-қа* қош келдіңіз! 🎉\n\nInstagram *видеосы* немесе *рилс* сілтемесін жіберіп, видеоны *жүктеп алыңыз*. ⚡️`,
+    welcome: `Insta Saver Bot-қа қош келдіңіз! 🎉\n\nInstagram *суреті* немесе *рилс* немесе *сторис* сілтемесін жіберіп, постты тегін *жүктеп алыңыз*. ⚡️`,
     invalidLink: `Қате сілтеме енгізілді ❌`,
     downloadFailed: `Видео жүктелмеді 😞`,
     statsTitle: `📊 *Бот статистикасы*`,
@@ -67,14 +73,16 @@ const languages = {
     failed: `❌ Сәтсіз`,
     successRate: `📈 Сәттілік деңгейі`,
     statsFailed: `Статистиканы алу мүмкін болмады.`,
-    videoCaption: (url) =>
-      `Видео @topinstasaverbot арқылы жүктелді\n\n[Сілтеме](${url}) | [Бот](https://t.me/topinstasaverbot) | [Жаңалықтар](https://t.me/TopInstaSaverNews)`,
-    videoLinkButton: `Видео сілтемесі`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nПост @topinstasaverbot арқылы жүктелді`;
+    },
+    postUrlButton: `Пост сілтемесі`,
   },
 
   // Kyrgyz
   ky: {
-    welcome: `*Insta Saver Bot-ка* кош келиңиз! 🎉\n\nInstagram *видеосу* же *рилс* шилтемесин жөнөтүп, видеону *жүктөп алыңыз*. ⚡️`,
+    welcome: `Insta Saver Bot-ка кош келиңиз! 🎉\n\nInstagram *сүрөтү* же *рилс* же *сторис* шилтемесин жөнөтүп, постту акысыз *жүктөп алыңыз*. ⚡️`,
     invalidLink: `Туура эмес шилтеме киргизилди ❌`,
     downloadFailed: `Видео жүктөлбөдү 😞`,
     statsTitle: `📊 *Бот статистикасы*`,
@@ -85,14 +93,16 @@ const languages = {
     failed: `❌ Ийгиликсиз`,
     successRate: `📈 Ийгилик деңгээли`,
     statsFailed: `Статистиканы алуу мүмкүн эмес.`,
-    videoCaption: (url) =>
-      `Видео @topinstasaverbot аркылуу жүктөлдү\n\n[Шилтеме](${url}) | [Бот](https://t.me/topinstasaverbot) | [Жаңылыктар](https://t.me/TopInstaSaverNews)`,
-    videoLinkButton: `Видео шилтемеси`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nПост @topinstasaverbot аркылуу жүктөлдү`;
+    },
+    postUrlButton: `Пост шилтемеси`,
   },
 
   // Turkish
   tr: {
-    welcome: `*Insta Saver Bot'a* hoş geldiniz! 🎉\n\nInstagram *video* veya *reel* bağlantısı göndererek videoyu *indirin*. ⚡️`,
+    welcome: `Insta Saver Bot'a hoş geldiniz! 🎉\n\nInstagram *resim* veya *reel* veya *story* bağlantısı gönderin ve gönderiyi ücretsiz *indirin*. ⚡️`,
     invalidLink: `Geçersiz bağlantı girildi ❌`,
     downloadFailed: `Video indirilemedi 😞`,
     statsTitle: `📊 *Bot İstatistikleri*`,
@@ -103,14 +113,16 @@ const languages = {
     failed: `❌ Başarısız`,
     successRate: `📈 Başarı Oranı`,
     statsFailed: `İstatistikler alınamadı.`,
-    videoCaption: (url) =>
-      `Video @topinstasaverbot üzerinden indirildi\n\n[Bağlantı](${url}) | [Bot](https://t.me/topinstasaverbot) | [Haberler](https://t.me/TopInstaSaverNews)`,
-    videoLinkButton: `Video bağlantısı`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nGönderi @topinstasaverbot üzerinden indirildi`;
+    },
+    postUrlButton: `Gönderi bağlantısı`,
   },
 
   // Tajik
   tg: {
-    welcome: `Ба *Insta Saver Bot* хуш омадед! 🎉\n\nПайванди *видео* ё *рилс*-и Instagram-ро фиристед ва видеоро *боргирӣ* кунед. ⚡️`,
+    welcome: `Ба Insta Saver Bot хуш омадед! 🎉\n\nПайванди Instagram *тасвир* ё *рилс* ё *сторӣ*-ро фиристед ва постро ройгон *боргирӣ* кунед. ⚡️`,
     invalidLink: `Пайванди нодуруст ворид шуд ❌`,
     downloadFailed: `Видео боргирӣ нашуд 😞`,
     statsTitle: `📊 *Омори бот*`,
@@ -121,14 +133,16 @@ const languages = {
     failed: `❌ Номуваффақ`,
     successRate: `📈 Дараҷаи муваффақият`,
     statsFailed: `Омор гирифта нашуд.`,
-    videoCaption: (url) =>
-      `Видео тавассути @topinstasaverbot боргирӣ шуд\n\n[Пайванд](${url}) | [Бот](https://t.me/topinstasaverbot) | [Хабарҳо](https://t.me/TopInstaSaverNews)`,
-    videoLinkButton: `Пайванди видео`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nПост тавассути @topinstasaverbot боргирӣ шуд`;
+    },
+    postUrlButton: `Пайванди пост`,
   },
 
   // Turkmen
   tk: {
-    welcome: `*Insta Saver Bot-a* hoş geldiňiz! 🎉\n\nInstagram *wideo* ýa-da *rils* baglanyşygyny iberip, wideony *ýükläň*. ⚡️`,
+    welcome: `Insta Saver Bot-a hoş geldiňiz! 🎉\n\nInstagram *surat* ýa-da *rils* ýa-da *story* baglanyşygyny iberip, posti mugt *ýükläň*. ⚡️`,
     invalidLink: `Nädogry baglanyşyk girizildi ❌`,
     downloadFailed: `Wideo ýüklenmedi 😞`,
     statsTitle: `📊 *Bot statistikasy*`,
@@ -139,14 +153,16 @@ const languages = {
     failed: `❌ Şowsuz`,
     successRate: `📈 Üstünlik derejesi`,
     statsFailed: `Statistikany almak başartmady.`,
-    videoCaption: (url) =>
-      `Wideo @topinstasaverbot arkaly ýüklendi\n\n[Baglanyşyk](${url}) | [Bot](https://t.me/topinstasaverbot) | [Habarlar](https://t.me/TopInstaSaverNews)`,
-    videoLinkButton: `Wideo baglanyşygy`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nPost @topinstasaverbot arkaly ýüklendi`;
+    },
+    postUrlButton: `Post baglanyşygy`,
   },
 
   // Azerbaijani
   az: {
-    welcome: `*Insta Saver Bot-a* xoş gəlmisiniz! 🎉\n\nInstagram *video* və ya *reel* linkini göndərərək videonu *yükləyin*. ⚡️`,
+    welcome: `Insta Saver Bot-a xoş gəlmisiniz! 🎉\n\nInstagram *şəkil* və ya *reel* və ya *story* linkini göndərin və postu pulsuz *yükləyin*. ⚡️`,
     invalidLink: `Yanlış link daxil edildi ❌`,
     downloadFailed: `Video yüklənmədi 😞`,
     statsTitle: `📊 *Bot statistikası*`,
@@ -157,14 +173,16 @@ const languages = {
     failed: `❌ Uğursuz`,
     successRate: `📈 Uğur dərəcəsi`,
     statsFailed: `Statistika əldə edilmədi.`,
-    videoCaption: (url) =>
-      `Video @topinstasaverbot vasitəsilə yükləndi\n\n[Link](${url}) | [Bot](https://t.me/topinstasaverbot) | [Xəbərlər](https://t.me/TopInstaSaverNews)`,
-    videoLinkButton: `Video linki`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nPost @topinstasaverbot vasitəsilə yükləndi`;
+    },
+    postUrlButton: `Post linki`,
   },
 
   // Persian
   fa: {
-    welcome: `به *Insta Saver Bot* خوش آمدید! 🎉\n\nلینک *ویدیو* یا *ریلز* اینستاگرام را ارسال کنید و ویدیو را *دانلود* کنید. ⚡️`,
+    welcome: `به Insta Saver Bot خوش آمدید! 🎉\n\nلینک *تصویر* یا *ریلز* یا *استوری* اینستاگرام را ارسال کنید و پست را رایگان *دانلود* کنید. ⚡️`,
     invalidLink: `لینک نامعتبر وارد شد ❌`,
     downloadFailed: `دانلود ویدیو ناموفق بود 😞`,
     statsTitle: `📊 *آمار ربات*`,
@@ -175,14 +193,16 @@ const languages = {
     failed: `❌ ناموفق`,
     successRate: `📈 نرخ موفقیت`,
     statsFailed: `دریافت آمار ناموفق بود.`,
-    videoCaption: (url) =>
-      `ویدیو از طریق @topinstasaverbot دانلود شد\n\n[لینک](${url}) | [ربات](https://t.me/topinstasaverbot) | [اخبار](https://t.me/TopInstaSaverNews)`,
-    videoLinkButton: `لینک ویدیو`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nپست از طریق @topinstasaverbot دانلود شد`;
+    },
+    postUrlButton: `لینک پست`,
   },
 
   // Arabic
   ar: {
-    welcome: `مرحبًا بك في *Insta Saver Bot!* 🎉\n\nأرسل رابط *فيديو* أو *ريلز* من Instagram *لتنزيل* الفيديو. ⚡️`,
+    welcome: `مرحبًا بك في Insta Saver Bot! 🎉\n\nأرسل رابط *صورة* أو *ريلز* أو *قصة* من Instagram و*قم بتنزيل* المنشور مجانًا. ⚡️`,
     invalidLink: `تم إدخال رابط غير صالح ❌`,
     downloadFailed: `فشل تنزيل الفيديو 😞`,
     statsTitle: `📊 *إحصائيات البوت*`,
@@ -193,14 +213,16 @@ const languages = {
     failed: `❌ فشل`,
     successRate: `📈 معدل النجاح`,
     statsFailed: `فشل في الحصول على الإحصائيات.`,
-    videoCaption: (url) =>
-      `تم تنزيل الفيديو عبر @topinstasaverbot\n\n[الرابط](${url}) | [البوت](https://t.me/topinstasaverbot) | [الأخبار](https://t.me/TopInstaSaverNews)`,
-    videoLinkButton: `رابط الفيديو`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nتم تنزيل المنشور عبر @topinstasaverbot`;
+    },
+    postUrlButton: `رابط المنشور`,
   },
 
   // Portuguese (Portugal)
   "pt-pt": {
-    welcome: `Bem-vindo ao *Insta Saver Bot!* 🎉\n\nEnvie uma ligação de *vídeo* ou *reel* do Instagram para *transferir* o vídeo. ⚡️`,
+    welcome: `Bem-vindo ao Insta Saver Bot! 🎉\n\nEnvie uma ligação de *imagem* ou *reel* ou *story* do Instagram e *transfira* a publicação gratuitamente. ⚡️`,
     invalidLink: `Ligação inválida introduzida ❌`,
     downloadFailed: `Falha ao transferir o vídeo 😞`,
     statsTitle: `📊 *Estatísticas do Bot*`,
@@ -211,14 +233,16 @@ const languages = {
     failed: `❌ Falhou`,
     successRate: `📈 Taxa de Sucesso`,
     statsFailed: `Falha ao obter estatísticas.`,
-    videoCaption: (url) =>
-      `O vídeo foi transferido via @topinstasaverbot\n\n[Ligação](${url}) | [Bot](https://t.me/topinstasaverbot) | [Notícias](https://t.me/TopInstaSaverNews)`,
-    videoLinkButton: `Ligação do vídeo`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nPublicação transferida via @topinstasaverbot`;
+    },
+    postUrlButton: `Ligação da publicação`,
   },
 
   // Portuguese (Brazil)
   "pt-br": {
-    welcome: `Bem-vindo ao *Insta Saver Bot!* 🎉\n\nEnvie um link de *vídeo* ou *reel* do Instagram para *baixar* o vídeo. ⚡️`,
+    welcome: `Bem-vindo ao Insta Saver Bot! 🎉\n\nEnvie um link de *imagem* ou *reel* ou *story* do Instagram e *baixe* a publicação gratuitamente. ⚡️`,
     invalidLink: `Link inválido inserido ❌`,
     downloadFailed: `Falha ao baixar o vídeo 😞`,
     statsTitle: `📊 *Estatísticas do Bot*`,
@@ -229,9 +253,11 @@ const languages = {
     failed: `❌ Falhou`,
     successRate: `📈 Taxa de Sucesso`,
     statsFailed: `Falha ao obter estatísticas.`,
-    videoCaption: (url) =>
-      `O vídeo foi baixado via @topinstasaverbot\n\n[Link](${url}) | [Bot](https://t.me/topinstasaverbot) | [Notícias](https://t.me/TopInstaSaverNews)`,
-    videoLinkButton: `Link do vídeo`,
+    postCaption: (title) => {
+      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      return `${formatted}\n\nPublicação baixada via @topinstasaverbot`;
+    },
+    postUrlButton: `Link da publicação`,
   },
 };
 
