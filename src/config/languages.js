@@ -19,6 +19,7 @@ const languages = {
       return `${formatted}\n\nPost @topinstasaverbot orqali yuklandi`;
     },
     postUrlButton: `Post havolasi`,
+    retryButton: `🔄 Qayta urinish`,
   },
 
   // English
@@ -40,6 +41,7 @@ const languages = {
       return `${formatted}\n\nPost downloaded via @topinstasaverbot`;
     },
     postUrlButton: `Post link`,
+    retryButton: `🔄 Retry`,
   },
 
   // Russian
@@ -61,6 +63,7 @@ const languages = {
       return `${formatted}\n\nПост скачан через @topinstasaverbot`;
     },
     postUrlButton: `Ссылка на пост`,
+    retryButton: `🔄 Повторить`,
   },
 
   // Kazakh
@@ -82,6 +85,7 @@ const languages = {
       return `${formatted}\n\nПост @topinstasaverbot арқылы жүктелді`;
     },
     postUrlButton: `Пост сілтемесі`,
+    retryButton: `🔄 Қайталау`,
   },
 
   // Kyrgyz
@@ -103,6 +107,7 @@ const languages = {
       return `${formatted}\n\nПост @topinstasaverbot аркылуу жүктөлдү`;
     },
     postUrlButton: `Пост шилтемеси`,
+    retryButton: `🔄 Кайталоо`,
   },
 
   // Turkish
@@ -124,6 +129,7 @@ const languages = {
       return `${formatted}\n\nGönderi @topinstasaverbot üzerinden indirildi`;
     },
     postUrlButton: `Gönderi bağlantısı`,
+    retryButton: `🔄 Tekrar dene`,
   },
 
   // Tajik
@@ -145,6 +151,7 @@ const languages = {
       return `${formatted}\n\nПост тавассути @topinstasaverbot боргирӣ шуд`;
     },
     postUrlButton: `Пайванди пост`,
+    retryButton: `🔄 Такрор кардан`,
   },
 
   // Turkmen
@@ -166,6 +173,7 @@ const languages = {
       return `${formatted}\n\nPost @topinstasaverbot arkaly ýüklendi`;
     },
     postUrlButton: `Post baglanyşygy`,
+    retryButton: `🔄 Gaýtadan synanyş`,
   },
 
   // Azerbaijani
@@ -187,6 +195,7 @@ const languages = {
       return `${formatted}\n\nPost @topinstasaverbot vasitəsilə yükləndi`;
     },
     postUrlButton: `Post linki`,
+    retryButton: `🔄 Yenidən cəhd et`,
   },
 
   // Persian
@@ -208,6 +217,7 @@ const languages = {
       return `${formatted}\n\nپست از طریق @topinstasaverbot دانلود شد`;
     },
     postUrlButton: `لینک پست`,
+    retryButton: `🔄 تلاش مجدد`,
   },
 
   // Arabic
@@ -229,6 +239,7 @@ const languages = {
       return `${formatted}\n\nتم تنزيل المنشور عبر @topinstasaverbot`;
     },
     postUrlButton: `رابط المنشور`,
+    retryButton: `🔄 إعادة المحاولة`,
   },
 
   // Portuguese (Portugal)
@@ -250,6 +261,7 @@ const languages = {
       return `${formatted}\n\nPublicação transferida via @topinstasaverbot`;
     },
     postUrlButton: `Ligação da publicação`,
+    retryButton: `🔄 Tentar novamente`,
   },
 
   // Portuguese (Brazil)
@@ -271,6 +283,7 @@ const languages = {
       return `${formatted}\n\nPublicação baixada via @topinstasaverbot`;
     },
     postUrlButton: `Link da publicação`,
+    retryButton: `🔄 Tentar novamente`,
   },
 
   // Spanish
@@ -292,6 +305,7 @@ const languages = {
       return `${formatted}\n\nPublicación descargada vía @topinstasaverbot`;
     },
     postUrlButton: `Enlace de publicación`,
+    retryButton: `🔄 Reintentar`,
   },
 
   // French
@@ -313,6 +327,7 @@ const languages = {
       return `${formatted}\n\nPublication téléchargée via @topinstasaverbot`;
     },
     postUrlButton: `Lien de publication`,
+    retryButton: `🔄 Réessayer`,
   },
 
   // German
@@ -334,6 +349,7 @@ const languages = {
       return `${formatted}\n\nBeitrag über @topinstasaverbot heruntergeladen`;
     },
     postUrlButton: `Beitragslink`,
+    retryButton: `🔄 Erneut versuchen`,
   },
 
   // Italian
@@ -355,6 +371,7 @@ const languages = {
       return `${formatted}\n\nPubblicazione scaricata tramite @topinstasaverbot`;
     },
     postUrlButton: `Link pubblicazione`,
+    retryButton: `🔄 Riprova`,
   },
 
   // Indonesian
@@ -376,6 +393,7 @@ const languages = {
       return `${formatted}\n\nPostingan diunduh via @topinstasaverbot`;
     },
     postUrlButton: `Tautan postingan`,
+    retryButton: `🔄 Coba lagi`,
   },
 
   // Hindi
@@ -397,6 +415,7 @@ const languages = {
       return `${formatted}\n\nपोस्ट @topinstasaverbot के माध्यम से डाउनलोड की गई`;
     },
     postUrlButton: `पोस्ट लिंक`,
+    retryButton: `🔄 पुनः प्रयास करें`,
   },
 
   // Ukrainian
@@ -418,6 +437,7 @@ const languages = {
       return `${formatted}\n\nПост завантажено через @topinstasaverbot`;
     },
     postUrlButton: `Посилання на пост`,
+    retryButton: `🔄 Повторити спробу`,
   },
 
   // Polish
@@ -439,6 +459,7 @@ const languages = {
       return `${formatted}\n\nPost pobrany przez @topinstasaverbot`;
     },
     postUrlButton: `Link do postu`,
+    retryButton: `🔄 Spróbuj ponownie`,
   },
 
   // Vietnamese
@@ -460,6 +481,7 @@ const languages = {
       return `${formatted}\n\nBài đăng được tải xuống qua @topinstasaverbot`;
     },
     postUrlButton: `Liên kết bài đăng`,
+    retryButton: `🔄 Thử lại`,
   },
 
   // Thai
@@ -481,6 +503,7 @@ const languages = {
       return `${formatted}\n\nโพสต์ดาวน์โหลดผ่าน @topinstasaverbot`;
     },
     postUrlButton: `ลิงก์โพสต์`,
+    retryButton: `🔄 ลองอีกครั้ง`,
   },
 
   // Korean
@@ -502,6 +525,7 @@ const languages = {
       return `${formatted}\n\n게시물이 @topinstasaverbot을 통해 다운로드되었습니다`;
     },
     postUrlButton: `게시물 링크`,
+    retryButton: `🔄 다시 시도`,
   },
 
   // Japanese
@@ -523,6 +547,7 @@ const languages = {
       return `${formatted}\n\n投稿は@topinstasaverbotを介してダウンロードされました`;
     },
     postUrlButton: `投稿リンク`,
+    retryButton: `🔄 再試行`,
   },
 
   // Dutch
@@ -544,6 +569,7 @@ const languages = {
       return `${formatted}\n\nPublicatie gedownload via @topinstasaverbot`;
     },
     postUrlButton: `Publicatielink`,
+    retryButton: `🔄 Opnieuw proberen`,
   },
 
   // Romanian
@@ -565,6 +591,7 @@ const languages = {
       return `${formatted}\n\nPostare descărcată prin @topinstasaverbot`;
     },
     postUrlButton: `Link postare`,
+    retryButton: `🔄 Încearcă din nou`,
   },
 
   // Czech
@@ -586,6 +613,7 @@ const languages = {
       return `${formatted}\n\nPříspěvek stažen přes @topinstasaverbot`;
     },
     postUrlButton: `Odkaz příspěvku`,
+    retryButton: `🔄 Zkusit znovu`,
   },
 
   // Hungarian
@@ -607,6 +635,7 @@ const languages = {
       return `${formatted}\n\nBejegyzés letöltve @topinstasaverbot-on keresztül`;
     },
     postUrlButton: `Bejegyzés link`,
+    retryButton: `🔄 Újrapróbálás`,
   },
 
   // Greek
@@ -628,6 +657,7 @@ const languages = {
       return `${formatted}\n\nΗ δημοσίευση κατέβηκε μέσω @topinstasaverbot`;
     },
     postUrlButton: `Σύνδεσμος δημοσίευσης`,
+    retryButton: `🔄 Δοκιμάστε ξανά`,
   },
 
   // Swedish
@@ -649,6 +679,7 @@ const languages = {
       return `${formatted}\n\nInlägg nedladdat via @topinstasaverbot`;
     },
     postUrlButton: `Inläggslänk`,
+    retryButton: `🔄 Försök igen`,
   },
 
   // Danish
@@ -670,6 +701,7 @@ const languages = {
       return `${formatted}\n\nIndlæg downloadet via @topinstasaverbot`;
     },
     postUrlButton: `Indlægslink`,
+    retryButton: `🔄 Prøv igen`,
   },
 
   // Finnish
@@ -691,6 +723,7 @@ const languages = {
       return `${formatted}\n\nJulkaisu ladattu @topinstasaverbot kautta`;
     },
     postUrlButton: `Julkaisulinkki`,
+    retryButton: `🔄 Yritä uudelleen`,
   },
 
   // Chinese
@@ -712,6 +745,7 @@ const languages = {
       return `${formatted}\n\n帖子通过@topinstasaverbot下载`;
     },
     postUrlButton: `帖子链接`,
+    retryButton: `🔄 重试`,
   },
 };
 

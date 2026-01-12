@@ -114,4 +114,24 @@ const getUserLang = async (chatId) => {
     const { cleanedUrl, success } = detectPlatform(text);
     if (success) sendPost(chatId, cleanedUrl, t, msgId);
   });
+
+  // Handle callback queries (button presses)
+  bot.on("callback_query", async (callbackQuery) => {
+    const { data, message } = callbackQuery;
+    const chatId = message.chat.id;
+
+    // Answer callback query to remove loading state
+    bot.answerCallbackQuery(callbackQuery.id);
+
+    // Check if it's a retry action
+    if (!data.startsWith("retry:")) return;
+    const url = data.replace("retry:", "");
+
+    // Get user language
+    const langCode = await getUserLang(chatId);
+    const t = getTranslations(langCode);
+
+    // Retry sending post
+    sendPost(chatId, url, t, message.message_id);
+  });
 })();

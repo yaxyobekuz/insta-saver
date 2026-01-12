@@ -66,7 +66,10 @@ const sendPost = async (chatId, url, t, msgId) => {
     // If video sending fails
     bot.sendMessage(chatId, t.downloadFailed, {
       reply_markup: {
-        inline_keyboard: [[{ text: t.postUrlButton, url }]],
+        inline_keyboard: [
+          [{ text: t.retryButton, callback_data: `retry:${url}` }],
+          [{ text: t.postUrlButton, url }],
+        ],
       },
     });
 
@@ -100,7 +103,7 @@ const sendMedias = async (chatId, t, post) => {
   if (!medias?.length) return;
 
   // Youtube
-  if (post.source === "youtube") {
+  if (post.source === "youtubeeeeee") {
     const video = selectYoutubeVideo(medias);
     if (video) {
       const sendedMedia = await sendMedia(chatId, t, video, post);
