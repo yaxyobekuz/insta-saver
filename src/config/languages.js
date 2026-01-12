@@ -1,3 +1,17 @@
+/**
+ * Escape Markdown special characters
+ * @param {String} text - Text to escape
+ * @returns {String} Escaped text
+ */
+const escapeMarkdown = (text) => {
+  if (!text || typeof text !== "string") return "";
+  return text
+    .split(" ")
+    .slice(0, 6)
+    .join(" ")
+    .replace(/([_*\[\]()~`>#+\-=|{}.!])/g, "\\$1");
+};
+
 // Supported languages configuration
 const languages = {
   // Uzbek
@@ -15,7 +29,7 @@ const languages = {
     successRate: `📈 Muvaffaqiyat darajasi`,
     statsFailed: `Statistikani olishda xatolik yuz berdi.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nPost @topinstasaverbot orqali yuklandi`;
     },
     postUrlButton: `Post havolasi`,
@@ -37,7 +51,7 @@ const languages = {
     successRate: `📈 Success Rate`,
     statsFailed: `Failed to get statistics.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nPost downloaded via @topinstasaverbot`;
     },
     postUrlButton: `Post link`,
@@ -59,7 +73,7 @@ const languages = {
     successRate: `📈 Процент успеха`,
     statsFailed: `Не удалось получить статистику.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nПост скачан через @topinstasaverbot`;
     },
     postUrlButton: `Ссылка на пост`,
@@ -81,7 +95,7 @@ const languages = {
     successRate: `📈 Сәттілік деңгейі`,
     statsFailed: `Статистиканы алу мүмкін болмады.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nПост @topinstasaverbot арқылы жүктелді`;
     },
     postUrlButton: `Пост сілтемесі`,
@@ -103,7 +117,7 @@ const languages = {
     successRate: `📈 Ийгилик деңгээли`,
     statsFailed: `Статистиканы алуу мүмкүн эмес.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nПост @topinstasaverbot аркылуу жүктөлдү`;
     },
     postUrlButton: `Пост шилтемеси`,
@@ -125,7 +139,7 @@ const languages = {
     successRate: `📈 Başarı Oranı`,
     statsFailed: `İstatistikler alınamadı.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nGönderi @topinstasaverbot üzerinden indirildi`;
     },
     postUrlButton: `Gönderi bağlantısı`,
@@ -147,7 +161,7 @@ const languages = {
     successRate: `📈 Дараҷаи муваффақият`,
     statsFailed: `Омор гирифта нашуд.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nПост тавассути @topinstasaverbot боргирӣ шуд`;
     },
     postUrlButton: `Пайванди пост`,
@@ -169,7 +183,7 @@ const languages = {
     successRate: `📈 Üstünlik derejesi`,
     statsFailed: `Statistikany almak başartmady.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nPost @topinstasaverbot arkaly ýüklendi`;
     },
     postUrlButton: `Post baglanyşygy`,
@@ -191,7 +205,7 @@ const languages = {
     successRate: `📈 Uğur dərəcəsi`,
     statsFailed: `Statistika əldə edilmədi.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nPost @topinstasaverbot vasitəsilə yükləndi`;
     },
     postUrlButton: `Post linki`,
@@ -213,7 +227,7 @@ const languages = {
     successRate: `📈 نرخ موفقیت`,
     statsFailed: `دریافت آمار ناموفق بود.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nپست از طریق @topinstasaverbot دانلود شد`;
     },
     postUrlButton: `لینک پست`,
@@ -235,7 +249,7 @@ const languages = {
     successRate: `📈 معدل النجاح`,
     statsFailed: `فشل في الحصول على الإحصائيات.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nتم تنزيل المنشور عبر @topinstasaverbot`;
     },
     postUrlButton: `رابط المنشور`,
@@ -257,7 +271,7 @@ const languages = {
     successRate: `📈 Taxa de Sucesso`,
     statsFailed: `Falha ao obter estatísticas.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nPublicação transferida via @topinstasaverbot`;
     },
     postUrlButton: `Ligação da publicação`,
@@ -279,7 +293,7 @@ const languages = {
     successRate: `📈 Taxa de Sucesso`,
     statsFailed: `Falha ao obter estatísticas.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nPublicação baixada via @topinstasaverbot`;
     },
     postUrlButton: `Link da publicação`,
@@ -301,7 +315,7 @@ const languages = {
     successRate: `📈 Tasa de Éxito`,
     statsFailed: `Error al obtener estadísticas.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nPublicación descargada vía @topinstasaverbot`;
     },
     postUrlButton: `Enlace de publicación`,
@@ -323,7 +337,7 @@ const languages = {
     successRate: `📈 Taux de Réussite`,
     statsFailed: `Échec de l'obtention des statistiques.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nPublication téléchargée via @topinstasaverbot`;
     },
     postUrlButton: `Lien de publication`,
@@ -345,7 +359,7 @@ const languages = {
     successRate: `📈 Erfolgsquote`,
     statsFailed: `Statistiken konnten nicht abgerufen werden.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nBeitrag über @topinstasaverbot heruntergeladen`;
     },
     postUrlButton: `Beitragslink`,
@@ -367,7 +381,7 @@ const languages = {
     successRate: `📈 Tasso di Successo`,
     statsFailed: `Impossibile ottenere statistiche.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nPubblicazione scaricata tramite @topinstasaverbot`;
     },
     postUrlButton: `Link pubblicazione`,
@@ -389,7 +403,7 @@ const languages = {
     successRate: `📈 Tingkat Keberhasilan`,
     statsFailed: `Gagal mendapatkan statistik.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nPostingan diunduh via @topinstasaverbot`;
     },
     postUrlButton: `Tautan postingan`,
@@ -411,7 +425,7 @@ const languages = {
     successRate: `📈 सफलता दर`,
     statsFailed: `आँकड़े प्राप्त करने में विफल।`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nपोस्ट @topinstasaverbot के माध्यम से डाउनलोड की गई`;
     },
     postUrlButton: `पोस्ट लिंक`,
@@ -433,7 +447,7 @@ const languages = {
     successRate: `📈 Рівень успіху`,
     statsFailed: `Не вдалося отримати статистику.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nПост завантажено через @topinstasaverbot`;
     },
     postUrlButton: `Посилання на пост`,
@@ -455,7 +469,7 @@ const languages = {
     successRate: `📈 Wskaźnik sukcesu`,
     statsFailed: `Nie udało się pobrać statystyk.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nPost pobrany przez @topinstasaverbot`;
     },
     postUrlButton: `Link do postu`,
@@ -477,7 +491,7 @@ const languages = {
     successRate: `📈 Tỷ Lệ Thành Công`,
     statsFailed: `Không thể lấy thống kê.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nBài đăng được tải xuống qua @topinstasaverbot`;
     },
     postUrlButton: `Liên kết bài đăng`,
@@ -499,7 +513,7 @@ const languages = {
     successRate: `📈 อัตราความสำเร็จ`,
     statsFailed: `ไม่สามารถรับสถิติได้`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nโพสต์ดาวน์โหลดผ่าน @topinstasaverbot`;
     },
     postUrlButton: `ลิงก์โพสต์`,
@@ -521,7 +535,7 @@ const languages = {
     successRate: `📈 성공률`,
     statsFailed: `통계를 가져오지 못했습니다.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\n게시물이 @topinstasaverbot을 통해 다운로드되었습니다`;
     },
     postUrlButton: `게시물 링크`,
@@ -543,7 +557,7 @@ const languages = {
     successRate: `📈 成功率`,
     statsFailed: `統計の取得に失敗しました。`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\n投稿は@topinstasaverbotを介してダウンロードされました`;
     },
     postUrlButton: `投稿リンク`,
@@ -565,7 +579,7 @@ const languages = {
     successRate: `📈 Succespercentage`,
     statsFailed: `Statistieken ophalen mislukt.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nPublicatie gedownload via @topinstasaverbot`;
     },
     postUrlButton: `Publicatielink`,
@@ -587,7 +601,7 @@ const languages = {
     successRate: `📈 Rata de Succes`,
     statsFailed: `Obținerea statisticilor a eșuat.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nPostare descărcată prin @topinstasaverbot`;
     },
     postUrlButton: `Link postare`,
@@ -609,7 +623,7 @@ const languages = {
     successRate: `📈 Míra Úspěšnosti`,
     statsFailed: `Získání statistik se nezdařilo.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nPříspěvek stažen přes @topinstasaverbot`;
     },
     postUrlButton: `Odkaz příspěvku`,
@@ -631,7 +645,7 @@ const languages = {
     successRate: `📈 Sikerességi Arány`,
     statsFailed: `A statisztikák lekérése sikertelen.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nBejegyzés letöltve @topinstasaverbot-on keresztül`;
     },
     postUrlButton: `Bejegyzés link`,
@@ -653,7 +667,7 @@ const languages = {
     successRate: `📈 Ποσοστό Επιτυχίας`,
     statsFailed: `Αποτυχία λήψης στατιστικών.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nΗ δημοσίευση κατέβηκε μέσω @topinstasaverbot`;
     },
     postUrlButton: `Σύνδεσμος δημοσίευσης`,
@@ -675,7 +689,7 @@ const languages = {
     successRate: `📈 Framgångsfrekvens`,
     statsFailed: `Misslyckades med att hämta statistik.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nInlägg nedladdat via @topinstasaverbot`;
     },
     postUrlButton: `Inläggslänk`,
@@ -697,7 +711,7 @@ const languages = {
     successRate: `📈 Succesrate`,
     statsFailed: `Kunne ikke hente statistik.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nIndlæg downloadet via @topinstasaverbot`;
     },
     postUrlButton: `Indlægslink`,
@@ -719,7 +733,7 @@ const languages = {
     successRate: `📈 Onnistumisprosentti`,
     statsFailed: `Tilastojen hakeminen epäonnistui.`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\nJulkaisu ladattu @topinstasaverbot kautta`;
     },
     postUrlButton: `Julkaisulinkki`,
@@ -741,7 +755,7 @@ const languages = {
     successRate: `📈 成功率`,
     statsFailed: `获取统计信息失败。`,
     postCaption: (title) => {
-      const formatted = title?.split(" ")?.slice(0, 6)?.join(" ");
+      const formatted = escapeMarkdown(title);
       return `${formatted}\n\n帖子通过@topinstasaverbot下载`;
     },
     postUrlButton: `帖子链接`,
