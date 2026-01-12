@@ -18,13 +18,14 @@ const detectPlatform = (url) => {
 
   // Instagram
   const instagramPattern =
-    /(?:https?:\/\/)?(?:www\.)?(?:instagram\.com|instagr\.am)\/(p|reel|tv|stories)\/([A-Za-z0-9_-]+)/i;
+    /(?:https?:\/\/)?(?:www\.)?(?:instagram\.com|instagr\.am)\/(p|reel|reels|tv|stories)\/([A-Za-z0-9_-]+)/i;
   const instagramMatch = trimmedUrl.match(instagramPattern);
   if (instagramMatch) {
     const type = instagramMatch[1].toLowerCase();
     let mediaType = "post";
 
     if (type === "reel") mediaType = "video";
+    else if (type === "reels") mediaType = "video";
     else if (type === "tv") mediaType = "video";
     else if (type === "stories") mediaType = "story";
     else if (type === "p") mediaType = "post";
