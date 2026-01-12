@@ -132,6 +132,6 @@ const getUserLang = async (chatId) => {
     const t = getTranslations(langCode);
 
     // Retry sending post
-    sendPost(chatId, url, t, message.message_id);
+    sendPost(chatId, url, t, message.message_id, true);
   });
 })();
