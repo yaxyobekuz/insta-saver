@@ -43,7 +43,9 @@ const sendPost = async (chatId, url, t, msgId) => {
     }
 
     // Send loading message
-    loadingMsgId = (await bot.sendMessage(chatId, t.loading)).message_id;
+    bot.sendMessage(chatId, t.loading).then((sentMsg) => {
+      loadingMsgId = sentMsg.message_id;
+    });
 
     // Fetch post data from Social Downloader API
     const response = await axios.post(
@@ -69,10 +71,13 @@ const sendPost = async (chatId, url, t, msgId) => {
     });
 
     console.error("=".repeat(40));
-    if (err.response?.body) {
-      console.error("Send post error: ", err.response?.body?.description);
+    if (err.response?.body || err.response?.data) {
+      console.error(
+        "Send post error: ",
+        err.response?.body || err.response?.data
+      );
     } else {
-      console.error("Send post error: ", err.message);
+      console.error("Send post error msg: ", err);
     }
     console.error("Post URL: ", url);
     console.error("=".repeat(40));
