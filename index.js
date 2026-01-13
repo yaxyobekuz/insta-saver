@@ -17,9 +17,6 @@ const bot = require("./src/config/bot.config");
 // Db connection
 const connectDB = require("./src/config/db.config");
 
-// Services
-const { sendPost } = require("./src/services/social.service");
-
 // Helpers
 const {
   getUserStats,
@@ -27,6 +24,10 @@ const {
   updateGlobalStats,
 } = require("./src/helpers/stats.helpers");
 const { detectPlatform } = require("./src/helpers/url.helpers");
+
+// Services
+const { sendPost } = require("./src/services/social.service");
+const { cleanupTempFolder } = require("./src/services/download.service");
 
 // Get user language helper
 const getUserLang = async (chatId) => {
@@ -135,3 +136,6 @@ const getUserLang = async (chatId) => {
     sendPost(chatId, url, t, message.message_id, true);
   });
 })();
+
+// Cleanup temp folder periodically
+cleanupTempFolder();
