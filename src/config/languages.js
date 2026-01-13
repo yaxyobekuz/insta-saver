@@ -836,14 +836,12 @@ const formatStatsMessage = (stats, langCode, isGlobal = false) => {
 
   let message = isGlobal ? `${t.statsTitle}\n\n` : `${t.myStatsTitle}\n\n`;
 
-  if (isGlobal) {
-    message += `${t.totalUsers}: ${stats.users}\n`;
-  }
-
-  message += `${t.totalVideos}: ${stats.total}\n`;
   message += `${t.success}: ${stats.success}\n`;
-  message += `${t.failed}: ${stats.failed}\n`;
-  message += `${t.successRate}: ${successRate}%`;
+
+  if (!isGlobal) {
+    message += `${t.failed}: ${stats.failed}\n`;
+    message += `${t.successRate}: ${successRate}%`;
+  }
 
   return message;
 };
