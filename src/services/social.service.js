@@ -4,12 +4,6 @@ const axios = require("axios");
 // Models
 const Post = require("../models/Post");
 
-// Helpers
-const {
-  trackVideoFailure,
-  trackVideoSuccess,
-} = require("../helpers/stats.helpers");
-
 // Bot config
 const bot = require("../config/bot.config");
 
@@ -18,8 +12,16 @@ const SDKey = process.env.SOCIAL_DOWN_KEY;
 const SDHost = process.env.SOCIAL_DOWN_HOST;
 const SDApiUrl = process.env.SOCIAL_DOWN_API_URL;
 
+// Helpers
+const {
+  trackVideoFailure,
+  trackVideoSuccess,
+} = require("../helpers/stats.helpers");
+const { detectPlatform } = require("../helpers/url.helpers");
+
 // Services
 const { downloadMedia } = require("./download.service");
+const { fetchReelByKKScript } = require("./kkscript.service");
 
 /**
   @param {number} chatId - The chat ID to send the video to
@@ -51,21 +53,17 @@ const sendPost = async (chatId, url, t, msgId) => {
     });
 
     // Fetch post data from Social Downloader API
-    const response = await axios.post(
-      SDApiUrl,
-      { url: url },
-      { headers: { "x-rapidapi-key": SDKey, "x-rapidapi-host": SDHost } }
-    );
+    const resData = await fetchPostData(url);
 
-    if (response.data.error) {
-      throw new Error(JSON.stringify(response.data, null, 2));
+    if (resData.error) {
+      throw new Error(JSON.stringify(resData, null, 2));
     }
 
     // Send medias to user
-    const sendedMedias = await sendMedias(chatId, t, response.data);
+    const sendedMedias = await sendMedias(chatId, t, resData);
 
     // Save post to database
-    await Post.create({ ...response.data, medias: sendedMedias });
+    await Post.create({ ...resData, medias: sendedMedias });
 
     // Video successfully downloaded, update stats
     await trackVideoSuccess(chatId);
@@ -176,6 +174,28 @@ const sendMedia = async (chatId, t, media, post, retryMode = false) => {
     );
     sendMedia(chatId, t, media, post, true);
   }
+};
+
+/**
+ * @param {string} url - The URL of the post to fetch
+ * @returns {object} The response from the Social Downloader API
+ */
+const fetchPostData = async (url) => {
+  const { postType } = detectPlatform(url);
+
+  // Use KKScript service for Instagram Reels
+  if (["reel", "reels"].includes(postType)) {
+    const reelData = await fetchReelByKKScript(url);
+    if (reelData) return reelData;
+  }
+
+  const response = await axios.post(
+    SDApiUrl,
+    { url },
+    { headers: { "x-rapidapi-key": SDKey, "x-rapidapi-host": SDHost } }
+  );
+
+  return response.data;
 };
 
 module.exports = { sendPost };
