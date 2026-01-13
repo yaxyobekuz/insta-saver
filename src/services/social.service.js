@@ -57,6 +57,11 @@ const sendPost = async (chatId, url, t, msgId, retryMode = false) => {
       { headers: { "x-rapidapi-key": SDKey, "x-rapidapi-host": SDHost } }
     );
 
+    if (response.data.error) {
+      retryMode = true;
+      throw new Error(JSON.stringify(response.data, null, 2));
+    }
+
     // Send medias to user
     const sendedMedias = await sendMedias(chatId, t, response.data, retryMode);
 
@@ -70,9 +75,9 @@ const sendPost = async (chatId, url, t, msgId, retryMode = false) => {
     bot.sendMessage(chatId, t.downloadFailed, {
       reply_markup: {
         inline_keyboard: [
-          retryMode
+          ...(retryMode
             ? []
-            : [{ text: t.retryButton, callback_data: `retry:${url}` }],
+            : [[{ text: t.retryButton, callback_data: `retry:${url}` }]]),
           [{ text: t.postUrlButton, url }],
         ],
       },
