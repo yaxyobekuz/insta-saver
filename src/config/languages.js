@@ -18,7 +18,8 @@ const languages = {
   uz: {
     welcome: `Insta Saver Botga xush kelibsiz! 🎉\n\nInstagram *rasm* yoki *reel* yoki *story* havolasini yuboring va postni bepul *yuklab oling*. ⚡️`,
     invalidLink: `Noto'g'ri havola kiritildi ❌`,
-    downloadFailed: `Video yuklanmadi 😞`,
+    downloadFailed: `Kontent yuklanmadi ☹️`,
+    noContent: `Kontent maxfiy bo'lishi yoki platforma contentni yuklashga ruxsat bermagan bo'lishi mumkin 😕`,
     statsTitle: `📊 *Bot Statistikasi*`,
     myStatsTitle: `📊 *Sizning Statistikangiz*`,
     totalUsers: `👥 Jami foydalanuvchilar`,
@@ -40,7 +41,8 @@ const languages = {
   en: {
     welcome: `Welcome to Insta Saver Bot! 🎉\n\nSend an Instagram *image* or *reel* or *story* link and *download* the post for free. ⚡️`,
     invalidLink: `Invalid link entered ❌`,
-    downloadFailed: `Failed to download the video 😞`,
+    downloadFailed: `Failed to download the content ☹️`,
+    noContent: `Content may be private or the platform doesn't allow downloading 😕`,
     statsTitle: `📊 *Bot Statistics*`,
     myStatsTitle: `📊 *Your Statistics*`,
     totalUsers: `👥 Total Users`,
@@ -62,7 +64,8 @@ const languages = {
   ru: {
     welcome: `Добро пожаловать в Insta Saver Bot! 🎉\n\nОтправьте ссылку на Instagram *изображение* или *рилс* или *сторис* и *скачайте* пост бесплатно. ⚡️`,
     invalidLink: `Введена неверная ссылка ❌`,
-    downloadFailed: `Не удалось скачать видео 😞`,
+    downloadFailed: `Не удалось скачать контент ☹️`,
+    noContent: `Контент может быть приватным или платформа не разрешает скачивание 😕`,
     statsTitle: `📊 *Статистика бота*`,
     myStatsTitle: `📊 *Ваша статистика*`,
     totalUsers: `👥 Всего пользователей`,
@@ -84,7 +87,8 @@ const languages = {
   kk: {
     welcome: `Insta Saver Bot-қа қош келдіңіз! 🎉\n\nInstagram *суреті* немесе *рилс* немесе *сторис* сілтемесін жіберіп, постты тегін *жүктеп алыңыз*. ⚡️`,
     invalidLink: `Қате сілтеме енгізілді ❌`,
-    downloadFailed: `Видео жүктелмеді 😞`,
+    downloadFailed: `Контент жүктелмеді ☹️`,
+    noContent: `Контент жабық болуы мүмкін немесе платформа жүктеуге рұқсат бермейді 😕`,
     statsTitle: `📊 *Бот статистикасы*`,
     myStatsTitle: `📊 *Сіздің статистикаңыз*`,
     totalUsers: `👥 Барлық қолданушылар`,
@@ -106,7 +110,8 @@ const languages = {
   ky: {
     welcome: `Insta Saver Bot-ка кош келиңиз! 🎉\n\nInstagram *сүрөтү* же *рилс* же *сторис* шилтемесин жөнөтүп, постту акысыз *жүктөп алыңыз*. ⚡️`,
     invalidLink: `Туура эмес шилтеме киргизилди ❌`,
-    downloadFailed: `Видео жүктөлбөдү 😞`,
+    downloadFailed: `Контент жүктөлбөдү ☹️`,
+    noContent: `Контент жабык болушу мүмкүн же платформа жүктөөгө уруксат бербейт 😕`,
     statsTitle: `📊 *Бот статистикасы*`,
     myStatsTitle: `📊 *Сиздин статистикаңыз*`,
     totalUsers: `👥 Бардык колдонуучулар`,
@@ -128,7 +133,8 @@ const languages = {
   tr: {
     welcome: `Insta Saver Bot'a hoş geldiniz! 🎉\n\nInstagram *resim* veya *reel* veya *story* bağlantısı gönderin ve gönderiyi ücretsiz *indirin*. ⚡️`,
     invalidLink: `Geçersiz bağlantı girildi ❌`,
-    downloadFailed: `Video indirilemedi 😞`,
+    downloadFailed: `İçerik indirilemedi ☹️`,
+    noContent: `İçerik gizli olabilir veya platform indirmeye izin vermiyor olabilir 😕`,
     statsTitle: `📊 *Bot İstatistikleri*`,
     myStatsTitle: `📊 *İstatistikleriniz*`,
     totalUsers: `👥 Toplam Kullanıcılar`,
@@ -150,7 +156,8 @@ const languages = {
   tg: {
     welcome: `Ба Insta Saver Bot хуш омадед! 🎉\n\nПайванди Instagram *тасвир* ё *рилс* ё *сторӣ*-ро фиристед ва постро ройгон *боргирӣ* кунед. ⚡️`,
     invalidLink: `Пайванди нодуруст ворид шуд ❌`,
-    downloadFailed: `Видео боргирӣ нашуд 😞`,
+    downloadFailed: `Контент боргирӣ нашуд ☹️`,
+    noContent: `Контент хусусӣ буда метавонад ё платформа боргириро иҷозат намедиҳад 😕`,
     statsTitle: `📊 *Омори бот*`,
     myStatsTitle: `📊 *Омори шумо*`,
     totalUsers: `👥 Ҳамаи корбарон`,
@@ -172,7 +179,8 @@ const languages = {
   tk: {
     welcome: `Insta Saver Bot-a hoş geldiňiz! 🎉\n\nInstagram *surat* ýa-da *rils* ýa-da *story* baglanyşygyny iberip, posti mugt *ýükläň*. ⚡️`,
     invalidLink: `Nädogry baglanyşyk girizildi ❌`,
-    downloadFailed: `Wideo ýüklenmedi 😞`,
+    downloadFailed: `Kontent ýüklenmedi ☹️`,
+    noContent: `Kontent gizlin bolup biler ýa-da platforma ýüklemäge rugsat bermeýär 😕`,
     statsTitle: `📊 *Bot statistikasy*`,
     myStatsTitle: `📊 *Siziň statistikaňyz*`,
     totalUsers: `👥 Ähli ulanyjylar`,
@@ -194,7 +202,8 @@ const languages = {
   az: {
     welcome: `Insta Saver Bot-a xoş gəlmisiniz! 🎉\n\nInstagram *şəkil* və ya *reel* və ya *story* linkini göndərin və postu pulsuz *yükləyin*. ⚡️`,
     invalidLink: `Yanlış link daxil edildi ❌`,
-    downloadFailed: `Video yüklənmədi 😞`,
+    downloadFailed: `Kontent yüklənmədi ☹️`,
+    noContent: `Kontent gizli ola bilər və ya platforma yükləməyə icazə vermir 😕`,
     statsTitle: `📊 *Bot statistikası*`,
     myStatsTitle: `📊 *Sizin statistikanız*`,
     totalUsers: `👥 Ümumi istifadəçilər`,
@@ -216,7 +225,8 @@ const languages = {
   fa: {
     welcome: `به Insta Saver Bot خوش آمدید! 🎉\n\nلینک *تصویر* یا *ریلز* یا *استوری* اینستاگرام را ارسال کنید و پست را رایگان *دانلود* کنید. ⚡️`,
     invalidLink: `لینک نامعتبر وارد شد ❌`,
-    downloadFailed: `دانلود ویدیو ناموفق بود 😞`,
+    downloadFailed: `دانلود محتوا ناموفق بود ☹️`,
+    noContent: `محتوا ممکن است خصوصی باشد یا پلتفرم اجازه دانلود نمی‌دهد 😕`,
     statsTitle: `📊 *آمار ربات*`,
     myStatsTitle: `📊 *آمار شما*`,
     totalUsers: `👥 کل کاربران`,
@@ -238,7 +248,8 @@ const languages = {
   ar: {
     welcome: `مرحبًا بك في Insta Saver Bot! 🎉\n\nأرسل رابط *صورة* أو *ريلز* أو *قصة* من Instagram و*قم بتنزيل* المنشور مجانًا. ⚡️`,
     invalidLink: `تم إدخال رابط غير صالح ❌`,
-    downloadFailed: `فشل تنزيل الفيديو 😞`,
+    downloadFailed: `فشل تنزيل المحتوى ☹️`,
+    noContent: `قد يكون المحتوى خاصًا أو لا تسمح المنصة بالتنزيل 😕`,
     statsTitle: `📊 *إحصائيات البوت*`,
     myStatsTitle: `📊 *إحصائياتك*`,
     totalUsers: `👥 إجمالي المستخدمين`,
@@ -260,7 +271,8 @@ const languages = {
   "pt-pt": {
     welcome: `Bem-vindo ao Insta Saver Bot! 🎉\n\nEnvie uma ligação de *imagem* ou *reel* ou *story* do Instagram e *transfira* a publicação gratuitamente. ⚡️`,
     invalidLink: `Ligação inválida introduzida ❌`,
-    downloadFailed: `Falha ao transferir o vídeo 😞`,
+    downloadFailed: `Falha ao transferir o conteúdo ☹️`,
+    noContent: `O conteúdo pode ser privado ou a plataforma não permite a transferência 😕`,
     statsTitle: `📊 *Estatísticas do Bot*`,
     myStatsTitle: `📊 *As Suas Estatísticas*`,
     totalUsers: `👥 Total de Utilizadores`,
@@ -282,7 +294,8 @@ const languages = {
   "pt-br": {
     welcome: `Bem-vindo ao Insta Saver Bot! 🎉\n\nEnvie um link de *imagem* ou *reel* ou *story* do Instagram e *baixe* a publicação gratuitamente. ⚡️`,
     invalidLink: `Link inválido inserido ❌`,
-    downloadFailed: `Falha ao baixar o vídeo 😞`,
+    downloadFailed: `Falha ao baixar o conteúdo ☹️`,
+    noContent: `O conteúdo pode ser privado ou a plataforma não permite o download 😕`,
     statsTitle: `📊 *Estatísticas do Bot*`,
     myStatsTitle: `📊 *Suas Estatísticas*`,
     totalUsers: `👥 Total de Usuários`,
@@ -304,7 +317,8 @@ const languages = {
   es: {
     welcome: `¡Bienvenido a Insta Saver Bot! 🎉\n\nEnvía un enlace de *imagen* o *reel* o *historia* de Instagram y *descarga* la publicación gratis. ⚡️`,
     invalidLink: `Enlace inválido ingresado ❌`,
-    downloadFailed: `Error al descargar el video 😞`,
+    downloadFailed: `Error al descargar el contenido ☹️`,
+    noContent: `El contenido puede ser privado o la plataforma no permite la descarga 😕`,
     statsTitle: `📊 *Estadísticas del Bot*`,
     myStatsTitle: `📊 *Tus Estadísticas*`,
     totalUsers: `👥 Total de Usuarios`,
@@ -326,7 +340,8 @@ const languages = {
   fr: {
     welcome: `Bienvenue sur Insta Saver Bot! 🎉\n\nEnvoyez un lien d'*image* ou de *reel* ou de *story* Instagram et *téléchargez* la publication gratuitement. ⚡️`,
     invalidLink: `Lien invalide saisi ❌`,
-    downloadFailed: `Échec du téléchargement de la vidéo 😞`,
+    downloadFailed: `Échec du téléchargement du contenu ☹️`,
+    noContent: `Le contenu peut être privé ou la plateforme n'autorise pas le téléchargement 😕`,
     statsTitle: `📊 *Statistiques du Bot*`,
     myStatsTitle: `📊 *Vos Statistiques*`,
     totalUsers: `👥 Total des Utilisateurs`,
@@ -348,7 +363,8 @@ const languages = {
   de: {
     welcome: `Willkommen bei Insta Saver Bot! 🎉\n\nSenden Sie einen Instagram *Bild*- oder *Reel*- oder *Story*-Link und *laden* Sie die Publikation kostenlos herunter. ⚡️`,
     invalidLink: `Ungültiger Link eingegeben ❌`,
-    downloadFailed: `Video konnte nicht heruntergeladen werden 😞`,
+    downloadFailed: `Inhalt konnte nicht heruntergeladen werden ☹️`,
+    noContent: `Der Inhalt ist möglicherweise privat oder die Plattform erlaubt kein Herunterladen 😕`,
     statsTitle: `📊 *Bot-Statistiken*`,
     myStatsTitle: `📊 *Ihre Statistiken*`,
     totalUsers: `👥 Gesamte Benutzer`,
@@ -370,7 +386,8 @@ const languages = {
   it: {
     welcome: `Benvenuto su Insta Saver Bot! 🎉\n\nInvia un link di *immagine* o *reel* o *storia* di Instagram e *scarica* la pubblicazione gratuitamente. ⚡️`,
     invalidLink: `Link non valido inserito ❌`,
-    downloadFailed: `Impossibile scaricare il video 😞`,
+    downloadFailed: `Impossibile scaricare il contenuto ☹️`,
+    noContent: `Il contenuto potrebbe essere privato o la piattaforma non consente il download 😕`,
     statsTitle: `📊 *Statistiche del Bot*`,
     myStatsTitle: `📊 *Le Tue Statistiche*`,
     totalUsers: `👥 Totale Utenti`,
@@ -392,7 +409,8 @@ const languages = {
   id: {
     welcome: `Selamat datang di Insta Saver Bot! 🎉\n\nKirim tautan *gambar* atau *reel* atau *story* Instagram dan *unduh* postingan secara gratis. ⚡️`,
     invalidLink: `Tautan tidak valid dimasukkan ❌`,
-    downloadFailed: `Gagal mengunduh video 😞`,
+    downloadFailed: `Gagal mengunduh konten ☹️`,
+    noContent: `Konten mungkin bersifat pribadi atau platform tidak mengizinkan pengunduhan 😕`,
     statsTitle: `📊 *Statistik Bot*`,
     myStatsTitle: `📊 *Statistik Anda*`,
     totalUsers: `👥 Total Pengguna`,
@@ -414,7 +432,8 @@ const languages = {
   hi: {
     welcome: `Insta Saver Bot में आपका स्वागत है! 🎉\n\nInstagram *छवि* या *रील* या *स्टोरी* लिंक भेजें और पोस्ट को मुफ्त में *डाउनलोड* करें। ⚡️`,
     invalidLink: `अमान्य लिंक दर्ज किया गया ❌`,
-    downloadFailed: `वीडियो डाउनलोड करने में विफल 😞`,
+    downloadFailed: `सामग्री डाउनलोड करने में विफल ☹️`,
+    noContent: `सामग्री निजी हो सकती है या प्लेटफ़ॉर्म डाउनलोड की अनुमति नहीं देता 😕`,
     statsTitle: `📊 *बॉट आँकड़े*`,
     myStatsTitle: `📊 *आपके आँकड़े*`,
     totalUsers: `👥 कुल उपयोगकर्ता`,
@@ -436,7 +455,8 @@ const languages = {
   uk: {
     welcome: `Ласкаво просимо до Insta Saver Bot! 🎉\n\nНадішліть посилання на Instagram *зображення* або *рілс* або *сторіс* і *завантажте* пост безкоштовно. ⚡️`,
     invalidLink: `Введено недійсне посилання ❌`,
-    downloadFailed: `Не вдалося завантажити відео 😞`,
+    downloadFailed: `Не вдалося завантажити контент ☹️`,
+    noContent: `Контент може бути приватним або платформа не дозволяє завантаження 😕`,
     statsTitle: `📊 *Статистика бота*`,
     myStatsTitle: `📊 *Ваша статистика*`,
     totalUsers: `👥 Всього користувачів`,
@@ -458,7 +478,8 @@ const languages = {
   pl: {
     welcome: `Witamy w Insta Saver Bot! 🎉\n\nWyślij link do *obrazu* lub *reel* lub *story* z Instagrama i *pobierz* post za darmo. ⚡️`,
     invalidLink: `Wprowadzono nieprawidłowy link ❌`,
-    downloadFailed: `Nie udało się pobrać wideo 😞`,
+    downloadFailed: `Nie udało się pobrać zawartości ☹️`,
+    noContent: `Zawartość może być prywatna lub platforma nie zezwala na pobieranie 😕`,
     statsTitle: `📊 *Statystyki Bota*`,
     myStatsTitle: `📊 *Twoje Statystyki*`,
     totalUsers: `👥 Łączna liczba użytkowników`,
@@ -480,7 +501,8 @@ const languages = {
   vi: {
     welcome: `Chào mừng đến với Insta Saver Bot! 🎉\n\nGửi liên kết *hình ảnh* hoặc *reel* hoặc *story* Instagram và *tải xuống* bài đăng miễn phí. ⚡️`,
     invalidLink: `Liên kết không hợp lệ được nhập ❌`,
-    downloadFailed: `Tải video thất bại 😞`,
+    downloadFailed: `Tải nội dung thất bại ☹️`,
+    noContent: `Nội dung có thể ở chế độ riêng tư hoặc nền tảng không cho phép tải xuống 😕`,
     statsTitle: `📊 *Thống Kê Bot*`,
     myStatsTitle: `📊 *Thống Kê Của Bạn*`,
     totalUsers: `👥 Tổng Người Dùng`,
@@ -502,7 +524,8 @@ const languages = {
   th: {
     welcome: `ยินดีต้อนรับสู่ Insta Saver Bot! 🎉\n\nส่งลิงก์ *รูปภาพ* หรือ *รีล* หรือ *สตอรี่* Instagram และ *ดาวน์โหลด* โพสต์ฟรี ⚡️`,
     invalidLink: `ป้อนลิงก์ไม่ถูกต้อง ❌`,
-    downloadFailed: `ดาวน์โหลดวิดีโอไม่สำเร็จ 😞`,
+    downloadFailed: `ดาวน์โหลดเนื้อหาไม่สำเร็จ ☹️`,
+    noContent: `เนื้อหาอาจเป็นส่วนตัวหรือแพลตฟอร์มไม่อนุญาตให้ดาวน์โหลด 😕`,
     statsTitle: `📊 *สถิติบอท*`,
     myStatsTitle: `📊 *สถิติของคุณ*`,
     totalUsers: `👥 ผู้ใช้ทั้งหมด`,
@@ -524,7 +547,8 @@ const languages = {
   ko: {
     welcome: `Insta Saver Bot에 오신 것을 환영합니다! 🎉\n\nInstagram *이미지* 또는 *릴* 또는 *스토리* 링크를 보내고 게시물을 무료로 *다운로드*하세요. ⚡️`,
     invalidLink: `잘못된 링크가 입력되었습니다 ❌`,
-    downloadFailed: `비디오 다운로드 실패 😞`,
+    downloadFailed: `콘텐츠 다운로드 실패 ☹️`,
+    noContent: `콘텐츠가 비공개이거나 플랫폼에서 다운로드를 허용하지 않을 수 있습니다 😕`,
     statsTitle: `📊 *봇 통계*`,
     myStatsTitle: `📊 *귀하의 통계*`,
     totalUsers: `👥 전체 사용자`,
@@ -546,7 +570,8 @@ const languages = {
   ja: {
     welcome: `Insta Saver Botへようこそ！🎉\n\nInstagramの*画像*または*リール*または*ストーリー*のリンクを送信して、投稿を無料で*ダウンロード*してください。⚡️`,
     invalidLink: `無効なリンクが入力されました ❌`,
-    downloadFailed: `動画のダウンロードに失敗しました 😞`,
+    downloadFailed: `コンテンツのダウンロードに失敗しました ☹️`,
+    noContent: `コンテンツが非公開であるか、プラットフォームがダウンロードを許可していない可能性があります 😕`,
     statsTitle: `📊 *ボット統計*`,
     myStatsTitle: `📊 *あなたの統計*`,
     totalUsers: `👥 総ユーザー数`,
@@ -568,7 +593,8 @@ const languages = {
   nl: {
     welcome: `Welkom bij Insta Saver Bot! 🎉\n\nStuur een Instagram *afbeelding* of *reel* of *verhaal* link en *download* de publicatie gratis. ⚡️`,
     invalidLink: `Ongeldige link ingevoerd ❌`,
-    downloadFailed: `Video downloaden mislukt 😞`,
+    downloadFailed: `Inhoud downloaden mislukt ☹️`,
+    noContent: `Inhoud kan privé zijn of het platform staat downloaden niet toe 😕`,
     statsTitle: `📊 *Bot Statistieken*`,
     myStatsTitle: `📊 *Uw Statistieken*`,
     totalUsers: `👥 Totaal Gebruikers`,
@@ -590,7 +616,8 @@ const languages = {
   ro: {
     welcome: `Bun venit la Insta Saver Bot! 🎉\n\nTrimite un link de *imagine* sau *reel* sau *story* Instagram și *descarcă* postarea gratuit. ⚡️`,
     invalidLink: `Link invalid introdus ❌`,
-    downloadFailed: `Descărcarea videoclipului a eșuat 😞`,
+    downloadFailed: `Descărcarea conținutului a eșuat ☹️`,
+    noContent: `Conținutul poate fi privat sau platforma nu permite descărcarea 😕`,
     statsTitle: `📊 *Statistici Bot*`,
     myStatsTitle: `📊 *Statisticile Tale*`,
     totalUsers: `👥 Total Utilizatori`,
@@ -612,7 +639,8 @@ const languages = {
   cs: {
     welcome: `Vítejte v Insta Saver Bot! 🎉\n\nPošlete odkaz na Instagram *obrázek* nebo *reel* nebo *příběh* a *stáhněte* příspěvek zdarma. ⚡️`,
     invalidLink: `Zadán neplatný odkaz ❌`,
-    downloadFailed: `Stažení videa se nezdařilo 😞`,
+    downloadFailed: `Stažení obsahu se nezdařilo ☹️`,
+    noContent: `Obsah může být soukromý nebo platforma neumožňuje stahování 😕`,
     statsTitle: `📊 *Statistiky Bota*`,
     myStatsTitle: `📊 *Vaše Statistiky*`,
     totalUsers: `👥 Celkem Uživatelů`,
@@ -634,7 +662,8 @@ const languages = {
   hu: {
     welcome: `Üdvözöljük az Insta Saver Bot-ban! 🎉\n\nKüldj egy Instagram *kép* vagy *reel* vagy *story* linket és *töltsd le* a bejegyzést ingyen. ⚡️`,
     invalidLink: `Érvénytelen hivatkozás megadva ❌`,
-    downloadFailed: `A videó letöltése sikertelen 😞`,
+    downloadFailed: `A tartalom letöltése sikertelen ☹️`,
+    noContent: `A tartalom lehet privát vagy a platform nem engedélyezi a letöltést 😕`,
     statsTitle: `📊 *Bot Statisztikák*`,
     myStatsTitle: `📊 *Statisztikáid*`,
     totalUsers: `👥 Összes Felhasználó`,
@@ -656,7 +685,8 @@ const languages = {
   el: {
     welcome: `Καλώς ήρθατε στο Insta Saver Bot! 🎉\n\nΣτείλτε έναν σύνδεσμο *εικόνας* ή *reel* ή *ιστορίας* Instagram και *κατεβάστε* τη δημοσίευση δωρεάν. ⚡️`,
     invalidLink: `Εισήχθη μη έγκυρος σύνδεσμος ❌`,
-    downloadFailed: `Αποτυχία λήψης βίντεο 😞`,
+    downloadFailed: `Αποτυχία λήψης περιεχομένου ☹️`,
+    noContent: `Το περιεχόμενο μπορεί να είναι ιδιωτικό ή η πλατφόρμα δεν επιτρέπει τη λήψη 😕`,
     statsTitle: `📊 *Στατιστικά Bot*`,
     myStatsTitle: `📊 *Τα Στατιστικά Σας*`,
     totalUsers: `👥 Σύνολο Χρηστών`,
@@ -678,7 +708,8 @@ const languages = {
   sv: {
     welcome: `Välkommen till Insta Saver Bot! 🎉\n\nSkicka en Instagram *bild* eller *reel* eller *story* länk och *ladda ner* inlägget gratis. ⚡️`,
     invalidLink: `Ogiltig länk angiven ❌`,
-    downloadFailed: `Misslyckades med att ladda ner video 😞`,
+    downloadFailed: `Misslyckades med att ladda ner innehåll ☹️`,
+    noContent: `Innehållet kan vara privat eller plattformen tillåter inte nedladdning 😕`,
     statsTitle: `📊 *Bot-statistik*`,
     myStatsTitle: `📊 *Din Statistik*`,
     totalUsers: `👥 Totalt Användare`,
@@ -700,7 +731,8 @@ const languages = {
   da: {
     welcome: `Velkommen til Insta Saver Bot! 🎉\n\nSend et Instagram *billede* eller *reel* eller *historie* link og *download* indlægget gratis. ⚡️`,
     invalidLink: `Ugyldigt link indtastet ❌`,
-    downloadFailed: `Download af video mislykkedes 😞`,
+    downloadFailed: `Download af indhold mislykkedes ☹️`,
+    noContent: `Indholdet kan være privat eller platformen tillader ikke download 😕`,
     statsTitle: `📊 *Bot Statistik*`,
     myStatsTitle: `📊 *Din Statistik*`,
     totalUsers: `👥 Totalt Brugere`,
@@ -722,7 +754,8 @@ const languages = {
   fi: {
     welcome: `Tervetuloa Insta Saver Botiin! 🎉\n\nLähetä Instagram *kuva* tai *reel* tai *tarina* linkki ja *lataa* julkaisu ilmaiseksi. ⚡️`,
     invalidLink: `Virheellinen linkki syötetty ❌`,
-    downloadFailed: `Videon lataus epäonnistui 😞`,
+    downloadFailed: `Sisällön lataus epäonnistui ☹️`,
+    noContent: `Sisältö voi olla yksityinen tai alusta ei salli lataamista 😕`,
     statsTitle: `📊 *Botin Tilastot*`,
     myStatsTitle: `📊 *Sinun Tilastosi*`,
     totalUsers: `👥 Käyttäjiä Yhteensä`,
@@ -744,7 +777,8 @@ const languages = {
   zh: {
     welcome: `欢迎使用Insta Saver Bot！🎉\n\n发送Instagram *图片*或*短视频*或*故事*链接，免费*下载*帖子。⚡️`,
     invalidLink: `输入的链接无效 ❌`,
-    downloadFailed: `下载视频失败 😞`,
+    downloadFailed: `下载内容失败 ☹️`,
+    noContent: `内容可能是私密的或平台不允许下载 😕`,
     statsTitle: `📊 *机器人统计*`,
     myStatsTitle: `📊 *您的统计*`,
     totalUsers: `👥 总用户数`,
