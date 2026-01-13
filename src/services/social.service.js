@@ -27,14 +27,14 @@ const { downloadMedia } = require("./download.service");
   @param {object} t - Translations object
   @param {number} msgId - The message ID to delete after processing
 */
-const sendPost = async (chatId, url, t, msgId, retryMode = false) => {
+const sendPost = async (chatId, url, t, msgId) => {
   // Delete the user's link message
   bot.deleteMessage(chatId, msgId);
   let loadingMsgId = null;
 
   try {
     // Check if post already exists in the database
-    const post = retryMode ? null : await Post.findOne({ url });
+    const post = await Post.findOne({ url });
     if (post) {
       await sendMedias(chatId, t, post);
 
@@ -58,12 +58,11 @@ const sendPost = async (chatId, url, t, msgId, retryMode = false) => {
     );
 
     if (response.data.error) {
-      retryMode = true;
       throw new Error(JSON.stringify(response.data, null, 2));
     }
 
     // Send medias to user
-    const sendedMedias = await sendMedias(chatId, t, response.data, retryMode);
+    const sendedMedias = await sendMedias(chatId, t, response.data);
 
     // Save post to database
     await Post.create({ ...response.data, medias: sendedMedias });
@@ -73,14 +72,7 @@ const sendPost = async (chatId, url, t, msgId, retryMode = false) => {
   } catch (err) {
     // If video sending fails
     bot.sendMessage(chatId, t.downloadFailed, {
-      reply_markup: {
-        inline_keyboard: [
-          ...(retryMode
-            ? []
-            : [[{ text: t.retryButton, callback_data: `retry:${url}` }]]),
-          [{ text: t.postUrlButton, url }],
-        ],
-      },
+      reply_markup: { inline_keyboard: [[{ text: t.postUrlButton, url }]] },
     });
 
     console.error("=".repeat(80));
@@ -108,7 +100,7 @@ const sendPost = async (chatId, url, t, msgId, retryMode = false) => {
   @param {object} t - Translations object
   @param {object} post - The post object containing medias
 */
-const sendMedias = async (chatId, t, post, retryMode = false) => {
+const sendMedias = async (chatId, t, post) => {
   const medias = post.medias;
   if (!medias?.length) return;
 
@@ -116,7 +108,7 @@ const sendMedias = async (chatId, t, post, retryMode = false) => {
   if (post.source === "youtubeeeeee") {
     const video = selectYoutubeVideo(medias);
     if (video) {
-      const sendedMedia = await sendMedia(chatId, t, video, post, retryMode);
+      const sendedMedia = await sendMedia(chatId, t, video, post);
       return [{ ...video, fileId: sendedMedia.file_id }];
     }
   }
@@ -126,7 +118,8 @@ const sendMedias = async (chatId, t, post, retryMode = false) => {
   for (let index = 0; index < medias.length; index++) {
     const media = medias[index];
     if (!["video", "image"].includes(media.type)) continue;
-    const sendedMedia = await sendMedia(chatId, t, media, post, retryMode);
+    const sendedMedia = await sendMedia(chatId, t, media, post);
+    if (!sendedMedia) continue;
     sendedMedias.push({ ...media, fileId: sendedMedia.file_id });
   }
 
@@ -138,6 +131,7 @@ const sendMedias = async (chatId, t, post, retryMode = false) => {
   @param {object} t Translations object
   @param {object} media The media object containing type and URL
   @param {object} post The post object containing medias
+  @param {boolean} retryMode Whether to retry with downloaded media
   @returns {object} The sent media object
 */
 const sendMedia = async (chatId, t, media, post, retryMode = false) => {
@@ -145,30 +139,42 @@ const sendMedia = async (chatId, t, media, post, retryMode = false) => {
     ? await downloadMedia(media.url)
     : media.fileId || media.url;
 
-  // Video
-  if (media.type === "video") {
-    const sendedMedia = await bot.sendVideo(chatId, fileUrl, {
-      parse_mode: "Markdown",
-      caption: t.postCaption(post.title),
-      reply_markup: {
-        inline_keyboard: [[{ text: t.postUrlButton, url: post.url }]],
-      },
-    });
+  try {
+    // Video
+    if (media.type === "video") {
+      const sendedMedia = await bot.sendVideo(chatId, fileUrl, {
+        parse_mode: "Markdown",
+        caption: t.postCaption(post.title),
+        reply_markup: {
+          inline_keyboard: [[{ text: t.postUrlButton, url: post.url }]],
+        },
+      });
 
-    return sendedMedia.video;
-  }
+      return sendedMedia.video;
+    }
 
-  // Image
-  if (media.type === "image") {
-    const sendedMedia = await bot.sendPhoto(chatId, fileUrl, {
-      parse_mode: "Markdown",
-      caption: t.postCaption(post.title),
-      reply_markup: {
-        inline_keyboard: [[{ text: t.postUrlButton, url: post.url }]],
-      },
-    });
+    // Image
+    if (media.type === "image") {
+      const sendedMedia = await bot.sendPhoto(chatId, fileUrl, {
+        parse_mode: "Markdown",
+        caption: t.postCaption(post.title),
+        reply_markup: {
+          inline_keyboard: [[{ text: t.postUrlButton, url: post.url }]],
+        },
+      });
 
-    return sendedMedia.photo[sendedMedia.photo.length - 1];
+      return sendedMedia.photo[sendedMedia.photo.length - 1];
+    }
+  } catch (err) {
+    // If already in retry mode, throw error
+    if (retryMode) throw new Error(err.message);
+
+    // Retry with downloaded media
+    console.warn(
+      `Failed to send media, retrying with downloaded media: `,
+      err.message
+    );
+    sendMedia(chatId, t, media, post, true);
   }
 };
 
