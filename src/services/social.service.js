@@ -65,7 +65,7 @@ const sendPost = async (chatId, url, t, msgId) => {
     const resData = await fetchPostData(url);
 
     if (resData.error) {
-      if (resData.status === 203) {
+      if (resData.status === 203 || resData.status === 404) {
         await Post.create({ url, medias: [], status: 203 });
       }
 
