@@ -38,6 +38,15 @@ const sendPost = async (chatId, url, t, msgId) => {
     // Check if post already exists in the database
     const post = await Post.findOne({ url });
     if (post) {
+      // If post previously failed to download
+      if (post.status === 203) {
+        await bot.sendMessage(chatId, t.noContent, {
+          reply_markup: { inline_keyboard: [[{ text: t.postUrlButton, url }]] },
+        });
+        return;
+      }
+
+      // Send medias to user
       await sendMedias(chatId, t, post);
 
       // Increment download count
@@ -56,7 +65,13 @@ const sendPost = async (chatId, url, t, msgId) => {
     const resData = await fetchPostData(url);
 
     if (resData.error) {
-      throw new Error(JSON.stringify(resData, null, 2));
+      if (resData.status === 203) {
+        await Post.create({ url, medias: [], status: 203 });
+      }
+
+      throw new Error(
+        JSON.stringify(resData.data?.message || resData.message, null, 2)
+      );
     }
 
     // Send medias to user

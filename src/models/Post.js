@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const Post = new mongoose.Schema(
   {
     title: { type: String, default: null },
+    status: { type: Number, default: 200 },
     source: { type: String, default: null },
     view_count: { type: Number, default: 0 },
     like_count: { type: Number, default: 0 },
