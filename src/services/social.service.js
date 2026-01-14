@@ -2,7 +2,7 @@
 const axios = require("axios");
 
 // Models
-const Post = require("../models/Post");
+const Post = require("../models/post.model");
 
 // Bot config
 const bot = require("../config/bot.config");

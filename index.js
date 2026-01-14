@@ -9,7 +9,7 @@ const {
 } = require("./src/config/languages");
 
 // Models
-const User = require("./src/models/User");
+const User = require("./src/models/user.model");
 
 // Bot config
 const bot = require("./src/config/bot.config");

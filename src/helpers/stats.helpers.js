@@ -1,5 +1,5 @@
-const User = require("../models/User");
-const Stats = require("../models/Stats");
+const User = require("../models/user.model");
+const Stats = require("../models/stats.model");
 
 /**
  * Update global statistics
