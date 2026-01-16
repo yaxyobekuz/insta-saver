@@ -7,7 +7,7 @@ const agenda = new Agenda({
   processEvery: "10 seconds",
   db: {
     collection: "agendaJobs",
-    address: process.env.MONGO_URI,
+    address: process.env.MONGODB_URL,
     options: { useNewUrlParser: true, useUnifiedTopology: true },
   },
 });
