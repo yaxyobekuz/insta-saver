@@ -1,16 +1,8 @@
-// Axios
-const axios = require("axios");
-
-// Models
-const Post = require("../models/post.model");
-
 // Bot config
 const bot = require("../config/bot.config");
 
-// Social Downloader API config
-const SDKey = process.env.SOCIAL_DOWN_KEY;
-const SDHost = process.env.SOCIAL_DOWN_HOST;
-const SDApiUrl = process.env.SOCIAL_DOWN_API_URL;
+// Models
+const Post = require("../models/post.model");
 
 // Helpers
 const {
@@ -22,6 +14,8 @@ const { detectPlatform } = require("../helpers/url.helpers");
 // Services
 const { downloadMedia } = require("./download.service");
 const { fetchReelByKKScript } = require("./kkscript.service");
+const { fetchReelByInstaLooter } = require("./instaLooter.service");
+const { fetchContentBySocialDown } = require("./socialDown.service");
 
 /**
   @param {number} chatId - The chat ID to send the video to
@@ -39,7 +33,7 @@ const sendPost = async (chatId, url, t, msgId) => {
     const post = await Post.findOne({ url });
     if (post) {
       // If post previously failed to download
-      if (post.status === 203) {
+      if (post.status === 203 || post.status === 404) {
         await bot.sendMessage(chatId, t.noContent, {
           reply_markup: { inline_keyboard: [[{ text: t.postUrlButton, url }]] },
         });
@@ -65,9 +59,7 @@ const sendPost = async (chatId, url, t, msgId) => {
     const resData = await fetchPostData(url);
 
     if (resData.error) {
-      if (resData.status === 203 || resData.status === 404) {
-        await Post.create({ url, medias: [], status: 203 });
-      }
+      await Post.create({ url, medias: [], status: 404 });
 
       throw new Error(
         JSON.stringify(resData.data?.message || resData.message, null, 2)
@@ -193,24 +185,27 @@ const sendMedia = async (chatId, t, media, post, retryMode = false) => {
 
 /**
  * @param {string} url - The URL of the post to fetch
- * @returns {object} The response from the Social Downloader API
+ * @returns {object} The response from Downloader API
  */
 const fetchPostData = async (url) => {
   const { postType } = detectPlatform(url);
 
   // Use KKScript service for Instagram Reels
   if (["reel", "reels"].includes(postType)) {
-    const reelData = await fetchReelByKKScript(url);
-    if (reelData) return reelData;
+    const kkScriptData = await fetchReelByKKScript(url);
+    if (kkScriptData) return kkScriptData;
   }
 
-  const response = await axios.post(
-    SDApiUrl,
-    { url },
-    { headers: { "x-rapidapi-key": SDKey, "x-rapidapi-host": SDHost } }
-  );
+  // Use Social Downloader service
+  const socialDownData = await fetchContentBySocialDown(url);
+  if (socialDownData) return socialDownData;
 
-  return response.data;
+  // Use Insta Looter service for Instagram Reels
+  const instaLooterData = await fetchReelByInstaLooter(url);
+  if (instaLooterData) return instaLooterData;
+
+  // If all services fail, return error
+  return { error: true, message: "Failed to fetch post data" };
 };
 
 module.exports = { sendPost };
