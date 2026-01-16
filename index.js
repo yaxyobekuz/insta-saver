@@ -8,16 +8,23 @@ const {
   formatStatsMessage,
 } = require("./src/config/languages");
 
+// Jobs
+const {
+  defineInviteLinkJob,
+  scheduleInviteLinkTracking,
+} = require("./src/jobs/inviteLink.job");
+
 // Bot config
 const bot = require("./src/config/bot.config");
+
+// Models
+const User = require("./src/models/user.model");
 
 // Db connection
 const connectDB = require("./src/config/db.config");
 
-// Models
-const User = require("./src/models/user.model");
-const InviteLink = require("./src/models/inviteLink.model");
-const InvitedUser = require("./src/models/invitedUser.model");
+// Agenda config
+const agenda = require("./src/config/agenda.config");
 
 // Helpers
 const {
@@ -45,6 +52,11 @@ const getUserLang = async (chatId) => {
 (async () => {
   await connectDB();
 
+  // Initialize and start agenda
+  defineInviteLinkJob(agenda);
+  await agenda.start();
+  console.log("Agenda started successfully");
+
   // Start command handler
   bot.onText(/\/start(?:\s+(.+))?/, async ({ chat, from, text }) => {
     const chatId = chat.id;
@@ -71,35 +83,12 @@ const getUserLang = async (chatId) => {
 
       // Track invite link if provided
       if (inviteLinkName) {
-        try {
-          const inviteLink = await InviteLink.findOne({
-            name: inviteLinkName,
-            isActive: true,
-          });
-
-          if (inviteLink) {
-            // Check if user already tracked (shouldn't happen for new user, but safety check)
-            const alreadyTracked = await InvitedUser.findOne({
-              userId: newUser._id,
-            });
-
-            if (!alreadyTracked) {
-              // Create invited user record
-              await InvitedUser.create({
-                inviteLinkId: inviteLink._id,
-                userId: newUser._id,
-                chatId: chatId,
-              });
-
-              // Increment invite link stats
-              await InviteLink.findByIdAndUpdate(inviteLink._id, {
-                $inc: { "stats.totalJoins": 1 },
-              });
-            }
-          }
-        } catch (error) {
-          console.error("Invite link tracking error:", error.message);
-        }
+        await scheduleInviteLinkTracking(
+          agenda,
+          inviteLinkName,
+          newUser._id.toString(),
+          chatId
+        );
       }
     }
 
