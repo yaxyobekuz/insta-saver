@@ -34,7 +34,6 @@ const InviteLinkSchema = new mongoose.Schema(
 );
 
 // Indexes
-InviteLinkSchema.index({ name: 1 });
 InviteLinkSchema.index({ isActive: 1, createdAt: -1 });
 
 module.exports = mongoose.model("InviteLink", InviteLinkSchema);
