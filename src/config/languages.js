@@ -7,7 +7,7 @@ const escapeMarkdown = (text) => {
   if (!text || typeof text !== "string") return "";
   return text
     .split(" ")
-    .slice(0, 6)
+    .slice(0, 9)
     .join(" ")
     .replace(/([_*\[\]()~`>#+\-=|{}.!])/g, "\\$1");
 };

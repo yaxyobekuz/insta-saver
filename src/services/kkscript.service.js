@@ -37,7 +37,7 @@ const fetchReelByKKScript = async (url) => {
       error: false,
       type: "single",
       source: "instagram",
-      title: "Instagram Reel",
+      title: "Instagram Video 📹",
       medias: [{ url: response.data.url, type: "video" }],
     };
   } catch {
