@@ -143,7 +143,7 @@ const getUserLang = async (chatId) => {
 
     // Detect platform and send post
     const { cleanedUrl, success } = detectPlatform(text);
-    if (success) sendPost(chatId, cleanedUrl, t, msgId);
+    if (success) sendPost(chatId, cleanedUrl, t, msgId, chat.type);
   });
 
   // Handle callback queries (button presses)

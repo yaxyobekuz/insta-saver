@@ -22,10 +22,11 @@ const { fetchContentBySocialDown } = require("./socialDown.service");
   @param {object} url - The URL of the video to download
   @param {object} t - Translations object
   @param {number} msgId - The message ID to delete after processing
+  @param {string} chatType - The chat type (private, group, supergroup)
 */
-const sendPost = async (chatId, url, t, msgId) => {
-  // Delete the user's link message
-  bot.deleteMessage(chatId, msgId);
+const sendPost = async (chatId, url, t, msgId, chatType) => {
+  // Delete the user's link message only in private chats
+  if (chatType === "private") bot.deleteMessage(chatId, msgId);
   let loadingMsgId = null;
 
   try {
